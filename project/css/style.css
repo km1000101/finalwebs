@@ -619,10 +619,6 @@ section{
    font-size: 1.5rem;
 }
 
-.reviews .heading {
-   font-size: 4rem; /* Reduced font size */
-}
-
 .playlist .row{
    display: flex;
    align-items: center;
@@ -1608,6 +1604,6 @@ section{
 
 .mission ul li {
    font-size: 2rem;
-   color: var (--light-color);
+   color: var(--light-color);
    margin-bottom: .5rem;
 }

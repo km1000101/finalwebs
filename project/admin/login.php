@@ -38,6 +38,21 @@ if(isset($_POST['submit'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../css/admin_style.css">
 
+   <style>
+   .btn-small {
+       background-color: var(--main-color);
+       border: none;
+       color: white;
+       padding: 8px 16px; /* Increase padding to make it bigger */
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       font-size: 14px; /* Increase font size */
+       margin: 4px 2px;
+       cursor: pointer;
+   }
+   </style>
+
 </head>
 <body style="padding-left: 0;">
 
@@ -59,6 +74,8 @@ if(isset($message)){
 <section class="form-container">
 
    <form action="" method="post" enctype="multipart/form-data" class="login">
+      <!-- Add small home button with arrow symbol to the left side of the welcome back text -->
+      <a href="../home.php" class="btn-small">&larr;</a>
       <h3>welcome back!</h3>
       <p>your email <span>*</span></p>
       <input type="email" name="email" placeholder="enter your email" maxlength="20" required class="box">
@@ -72,30 +89,17 @@ if(isset($message)){
 
 <!-- registe section ends -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
 
 let darkMode = localStorage.getItem('dark-mode');
 let body = document.body;
 
-const enabelDarkMode = () =>{
+const enabelDarkMode = () => {
    body.classList.add('dark');
    localStorage.setItem('dark-mode', 'enabled');
 }
 
-const disableDarkMode = () =>{
+const disableDarkMode = () => {
    body.classList.remove('dark');
    localStorage.setItem('dark-mode', 'disabled');
 }

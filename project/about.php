@@ -108,7 +108,7 @@ if(isset($_COOKIE['user_id'])){
 
 <section class="reviews">
 
-   <h3 class="heading">student's reviews</h3>
+   <h1 class="heading">student's reviews</h1>
 
    <div class="box-container">
 

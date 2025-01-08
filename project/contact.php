@@ -60,7 +60,7 @@ if(isset($_POST['submit'])){
    <div class="row">
 
       <div class="image">
-         <img src="images/contact-img.svg" alt="">
+         <img src="images/hod.jpg" alt="">
       </div>
 
       <form action="" method="post">

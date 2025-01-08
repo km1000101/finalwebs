@@ -58,9 +58,38 @@ if(isset($_POST['submit'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../css/admin_style.css">
 
+   <style>
+   :root {
+       --main-color: #ffa500; /* Ensure the main color is set to orange */
+   }
+   .btn {
+       background-color: var(--main-color); /* Use the main color variable which is now orange */
+       border: none;
+       color: white;
+       padding: 10px 20px;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       font-size: 16px;
+       margin: 4px 2px;
+       cursor: pointer;
+   }
+   .btn-small {
+       background-color: var(--main-color);
+       border: none;
+       color: white;
+       padding: 8px 16px; /* Increase padding to make it bigger */
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       font-size: 14px; /* Increase font size */
+       margin: 4px 2px;
+       cursor: pointer;
+   }
+   </style>
+
 </head>
 <body style="padding-left: 0;">
-
 <?php
 if(isset($message)){
    foreach($message as $message){
@@ -79,6 +108,8 @@ if(isset($message)){
 <section class="form-container">
 
    <form class="register" action="" method="post" enctype="multipart/form-data">
+      <!-- Add small home button with arrow symbol to the left side of the register new text -->
+      <a href="../home.php" class="btn-small">&larr;</a>
       <h3>register new</h3>
       <div class="flex">
          <div class="col">
@@ -87,17 +118,11 @@ if(isset($message)){
             <p>your profession <span>*</span></p>
             <select name="profession" class="box" required>
                <option value="" disabled selected>-- select your profession</option>
-               <option value="developer">developer</option>
-               <option value="desginer">desginer</option>
-               <option value="musician">musician</option>
-               <option value="biologist">biologist</option>
-               <option value="teacher">teacher</option>
-               <option value="engineer">engineer</option>
-               <option value="lawyer">lawyer</option>
-               <option value="accountant">accountant</option>
-               <option value="doctor">doctor</option>
-               <option value="journalist">journalist</option>
-               <option value="photographer">photographer</option>
+               <option value="developer">HOD</option>
+               <option value="desginer">professor</option>
+               <option value="musician">assistant professor</option>
+              
+    
             </select>
             <p>your email <span>*</span></p>
             <input type="email" name="email" placeholder="enter your email" maxlength="20" required class="box">
