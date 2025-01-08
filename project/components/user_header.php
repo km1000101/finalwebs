@@ -11,6 +11,12 @@ if(isset($message)){
 }
 ?>
 
+<style>
+   .navbar a:hover i {
+      color:rgb(25, 42, 134); /* Custom color */
+   }
+</style>
+
 <header class="header">
 
    <section class="flex">

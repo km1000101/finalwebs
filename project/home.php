@@ -36,6 +36,12 @@ $total_bookmarked = $select_bookmark->rowCount();
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
+   <style>
+      .box a:hover i {
+         color: #1E90FF; /* Custom color */
+      }
+   </style>
+
 </head>
 <body>
 
@@ -102,8 +108,10 @@ $total_bookmarked = $select_bookmark->rowCount();
       </div>
 
       <div class="box tutor">
-         <h3 class="title">become a tutor</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, laudantium.</p>
+         <h3 class="title">teachers login</h3>
+         <hr>
+         <p>Login with the userID and password provided by the department.</p>
+         <hr>
          <a href="admin/register.php" class="inline-btn">get started</a>
       </div>
 
