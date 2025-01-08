@@ -195,12 +195,13 @@ section{
    justify-content: space-between;
 }
 
-.header .flex .logo{
-   font-size: 2.5rem;
-   color: var(--black);
-   font-weight: bolder;
+.header .flex{
+   padding: 1.5rem 2rem;
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
-
 .header .flex .search-form{
    width: 50rem;
    border-radius: .5rem;

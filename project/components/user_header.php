@@ -21,7 +21,8 @@ if(isset($message)){
 
    <section class="flex">
 
-      <a href="home.php" class="logo">Educa.</a>
+      <a href="home.php" class="logo"><img src="images/LOGO.jpg">
+</a>
 
       <form action="search_course.php" method="post" class="search-form">
          <input type="text" name="search_course" placeholder="search courses..." required maxlength="100">

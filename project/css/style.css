@@ -173,7 +173,7 @@ section{
 .heading{
    padding-bottom: 1.8rem;
    border-bottom: var(--border);
-   font-size: 2.5rem;
+   font-size: 6rem;
    color: var(--black);
    text-transform: capitalize;
    margin-bottom: 3rem;
@@ -195,10 +195,10 @@ section{
    justify-content: space-between;
 }
 
-.header .flex .logo{
-   font-size: 2.5rem;
-   color: var(--black);
-   font-weight: bolder;
+.header .flex .logo img {
+   width: 120px; /* Adjust the width to your desired size */
+   height: auto; /* Maintain the aspect ratio */
+   border-radius: 50%; /* Make the logo round */
 }
 
 .header .flex .search-form{
@@ -220,7 +220,7 @@ section{
 
 .header .flex .search-form button{
    font-size: 2rem;
-   color: var(--black);
+   color: var (--black);
    cursor: pointer;
    background: none;
 }
@@ -437,7 +437,7 @@ section{
 }
 
 .quick-select .box-container .box .flex a:hover i{
-   color: var(--white);
+   color: var (--white);
 }
 
 .quick-select .box-container .box .flex a:hover span{
@@ -513,6 +513,8 @@ section{
 
 .about .row .image{
    flex: 1 1 40rem;
+   text-align: center;
+   
 }
 
 .about .row .image img{
@@ -520,19 +522,20 @@ section{
    height: 50rem;
 }
 
-.about .row .content{
+.about .row .{
    flex: 1 1 40rem;
    text-align: center;
+   
 }
 
 .about .row .content h3{
-   font-size: 2.5rem;
+   font-size: 3.5rem;
    color: var(--black);
 }
 
 .about .row .content p{
    line-height: 2;
-   font-size: 1.8rem;
+   font-size: 1.6rem;
    color: var(--light-color);
    padding: 1rem 0;
 }
@@ -587,8 +590,8 @@ section{
 
 .reviews .box-container .box p{
    line-height: 2;
-   font-size: 1.7rem;
-   color: var(--light-color);
+   font-size: 2rem;
+   color: var (--light-color);
 }
 
 .reviews .box-container .box .user{
@@ -614,6 +617,10 @@ section{
 .reviews .box-container .box .user .stars i{
    color: var(--main-color);
    font-size: 1.5rem;
+}
+
+.reviews .heading {
+   font-size: 4rem; /* Reduced font size */
 }
 
 .playlist .row{
@@ -1452,20 +1459,6 @@ section{
    overflow-x: hidden;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .footer{
    position: sticky;
    bottom: 0; right: 0; left: 0;
@@ -1592,4 +1585,29 @@ section{
       height: auto;
    }
 
+}
+
+.mission {
+   background-color: var(--light-bg);
+   padding: 2rem;
+   border-radius: .5rem;
+   margin-bottom: 2rem;
+   text-align: left;
+}
+
+.mission p {
+   font-size: 3.5rem; /* Increased font size */
+   color: var(--light-color);
+   margin-bottom: 1rem;
+}
+
+.mission ul {
+   list-style-type: disc;
+   padding-left: 2rem;
+}
+
+.mission ul li {
+   font-size: 2rem;
+   color: var (--light-color);
+   margin-bottom: .5rem;
 }

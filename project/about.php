@@ -35,14 +35,31 @@ if(isset($_COOKIE['user_id'])){
 
    <div class="row">
 
-      <div class="image">
-         <img src="images/about-img.svg" alt="">
+      <div class="image slideshow-container">
+         <div class="mySlides fade">
+            <img src="images/dept.jpg" style="width:70%; border-radius: 15px;">
+         </div>
+         <div class="mySlides fade">
+            <img src="images/hod.jpg" style="width:70%; border-radius: 15px;">
+         </div>
+         <div class="mySlides fade">
+            <img src="images/hod2.jpg" style="width:70%; border-radius: 15px;">
+         </div>
       </div>
 
       <div class="content">
          <h3>why choose us?</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nobis distinctio, nisi consequatur ad sequi, rem odit fugiat assumenda eligendi iure aut sunt ratione, tempore porro expedita quisquam.</p>
-         <a href="courses.html" class="inline-btn">our courses</a>
+         <div class="mission">
+            <p>The mission of the Department of CSE (AI) is to:</p>
+            <ul>
+               <li>Provide students with a strong foundation in AI fundamentals, equipping them with the knowledge and skills to thrive in the field.</li>
+               <li>Foster a collaborative learning environment that encourages innovation and critical thinking.</li>
+               <li>Prepare students for future careers in AI-related industries through practical applications and real-world projects.</li>
+            </ul>
+         </div>
+         <div style="text-align: center;">
+            <a href="courses.php" class="inline-btn">our courses</a>
+         </div>
       </div>
 
    </div>
@@ -52,7 +69,7 @@ if(isset($_COOKIE['user_id'])){
       <div class="box">
          <i class="fas fa-graduation-cap"></i>
          <div>
-            <h3>+1k</h3>
+            <h3 class="running-number" data-target="1000">0</h3>
             <span>online courses</span>
          </div>
       </div>
@@ -60,7 +77,7 @@ if(isset($_COOKIE['user_id'])){
       <div class="box">
          <i class="fas fa-user-graduate"></i>
          <div>
-            <h3>+25k</h3>
+            <h3 class="running-number" data-target="25000">0</h3>
             <span>brilliants students</span>
          </div>
       </div>
@@ -68,7 +85,7 @@ if(isset($_COOKIE['user_id'])){
       <div class="box">
          <i class="fas fa-chalkboard-user"></i>
          <div>
-            <h3>+5k</h3>
+            <h3 class="running-number" data-target="5000">0</h3>
             <span>expert teachers</span>
          </div>
       </div>
@@ -76,7 +93,7 @@ if(isset($_COOKIE['user_id'])){
       <div class="box">
          <i class="fas fa-briefcase"></i>
          <div>
-            <h3>100%</h3>
+            <h3 class="running-number" data-target="100">0%</h3>
             <span>job placement</span>
          </div>
       </div>
@@ -91,7 +108,7 @@ if(isset($_COOKIE['user_id'])){
 
 <section class="reviews">
 
-   <h1 class="heading">student's reviews</h1>
+   <h3 class="heading">student's reviews</h3>
 
    <div class="box-container">
 
@@ -203,19 +220,42 @@ if(isset($_COOKIE['user_id'])){
 
 <!-- reviews section ends -->
 
-
-
-
-
-
-
-
-
-
 <?php include 'components/footer.php'; ?>
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
+<script src="js/slideshow.js"></script>
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+      const runningNumbers = document.querySelectorAll('.running-number');
+
+      const runNumbers = () => {
+         runningNumbers.forEach(number => {
+            const updateCount = () => {
+               const target = +number.getAttribute('data-target');
+               const count = +number.innerText;
+               const speed = 200; // Adjust the speed as needed
+               const increment = target / speed;
+
+               if (count < target) {
+                  number.innerText = Math.ceil(count + increment);
+                  setTimeout(updateCount, 1);
+               } else {
+                  number.innerText = target;
+               }
+            };
+
+            const isVisible = number.getBoundingClientRect().top < window.innerHeight && number.getBoundingClientRect().bottom >= 0;
+            if (isVisible) {
+               updateCount();
+            }
+         });
+      };
+
+      window.addEventListener('scroll', runNumbers);
+      runNumbers();
+   });
+</script>
    
 </body>
 </html>

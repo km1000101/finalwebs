@@ -40,6 +40,9 @@ $total_bookmarked = $select_bookmark->rowCount();
       .box a:hover i {
          color: #1E90FF; /* Custom color */
       }
+      .heading span {
+         color: orange; /* Change intelligence text color to orange */
+      }
    </style>
 
 </head>
@@ -51,7 +54,7 @@ $total_bookmarked = $select_bookmark->rowCount();
 
 <section class="quick-select">
 
-   <h1 class="heading">quick options</h1>
+   <h1 class="heading">Department of Computer Science & Artificial <span>Intelligence</span></h1>
 
    <div class="box-container">
 
