@@ -52,6 +52,56 @@ if(isset($_POST['delete_video'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../css/admin_style.css">
 
+   <style>
+      .box-container {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 20px;
+         justify-content: center;
+      }
+      .box {
+         background-color: #fff;
+         border-radius: 10px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         padding: 20px;
+         transition: transform 0.3s;
+      }
+      .box:hover {
+         transform: translateY(-10px);
+      }
+      .thumb {
+         border-radius: 10px;
+         margin-bottom: 10px;
+      }
+      .title {
+         font-size: 1.2rem;
+         margin-bottom: 10px;
+      }
+      .flex {
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 10px;
+      }
+      .flex-btn {
+         display: flex;
+         gap: 10px;
+      }
+      .btn, .option-btn, .delete-btn {
+         padding: 10px 20px;
+         border-radius: 5px;
+         transition: background-color 0.3s;
+      }
+      .btn:hover, .option-btn:hover, .delete-btn:hover {
+         background-color: #333;
+         color: #fff;
+      }
+      .empty {
+         text-align: center;
+         font-size: 1.2rem;
+         color: #666;
+      }
+   </style>
+
 </head>
 <body>
 

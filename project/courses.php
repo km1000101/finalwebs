@@ -24,6 +24,39 @@ if(isset($_COOKIE['user_id'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
+   <style>
+      .box a:hover i {
+         color: #1E90FF; /* Custom color */
+      }
+      .heading span {
+         color: orange; /* Change intelligence text color to orange */
+      }
+      .heading {
+         opacity: 0;
+         transform: translateY(50px);
+         animation: fade-slide-up 1s forwards;
+      }
+      @keyframes fade-slide-up {
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+      .box {
+         transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .box:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .box img.thumb {
+         transition: transform 0.3s;
+      }
+      .box img.thumb:hover {
+         transform: scale(1.05);
+      }
+   </style>
+
 </head>
 <body>
 

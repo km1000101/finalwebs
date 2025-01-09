@@ -56,6 +56,19 @@ $total_bookmarked = $select_bookmark->rowCount();
             transform: translateY(0);
          }
       }
+      .box {
+         transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .box:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .box img.thumb {
+         transition: transform 0.3s;
+      }
+      .box img.thumb:hover {
+         transform: scale(1.05);
+      }
    </style>
 
 </head>
