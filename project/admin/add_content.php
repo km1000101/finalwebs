@@ -36,7 +36,7 @@ if(isset($_POST['submit'])){
    $video_tmp_name = $_FILES['video']['tmp_name'];
    $video_folder = '../uploaded_files/'.$rename_video;
 
-   if($thumb_size > 2000000){
+   if($thumb_size > 30000000){ // Increase limit to 5MB
       $message[] = 'image size is too large!';
    }else{
       $add_playlist = $conn->prepare("INSERT INTO `content`(id, tutor_id, playlist_id, title, description, video, thumb, status) VALUES(?,?,?,?,?,?,?,?)");
@@ -76,6 +76,7 @@ if(isset($_POST['submit'])){
    <h1 class="heading">upload content</h1>
 
    <form action="" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="MAX_FILE_SIZE" value="104857600" /> <!-- 100MB -->
       <p>video status <span>*</span></p>
       <select name="status" class="box" required>
          <option value="" selected disabled>-- select status</option>

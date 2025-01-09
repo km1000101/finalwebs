@@ -9,13 +9,21 @@ if(isset($_POST['submit'])){
    $pass = sha1($_POST['pass']);
    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
 
-   $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE email = ? AND password = ? LIMIT 1");
-   $select_tutor->execute([$email, $pass]);
-   $row = $select_tutor->fetch(PDO::FETCH_ASSOC);
-   
-   if($select_tutor->rowCount() > 0){
-     setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
-     header('location:dashboard.php');
+   // Hardcoded credentials
+   $allowed_email = 'hemanth@gmail.com';
+   $allowed_password = sha1('caits001');
+
+   if($email === $allowed_email && $pass === $allowed_password){
+      $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE email = ? LIMIT 1");
+      $select_tutor->execute([$email]);
+      $row = $select_tutor->fetch(PDO::FETCH_ASSOC);
+      
+      if($select_tutor->rowCount() > 0){
+         setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
+         header('location:dashboard.php');
+      } else {
+         $message[] = 'Tutor not found!';
+      }
    }else{
       $message[] = 'incorrect email or password!';
    }
