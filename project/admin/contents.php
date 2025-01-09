@@ -67,7 +67,7 @@ if(isset($_POST['delete_video'])){
          justify-content: center;
       }
       .box {
-         background-color: transparent;
+         background-color: rgba(63, 62, 62, 0.5)!important; /* Ensure the box is transparent */
          border-radius: 10px;
          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
          padding: 20px;

@@ -43,23 +43,31 @@ $total_comments = $select_comments->rowCount();
 
    <style>
       body {
+         display: flex;
+         flex-direction: column;
+         min-height: 100vh;
          background-color: #f0f0f0; /* Fallback color */
       }
       .background-image {
          position: fixed;
-         top: 60px; /* Adjust according to header height */
-         bottom: 60px; /* Adjust according to footer height */
+         top: 0;
+         bottom: 0;
          left: 0;
          right: 0;
          background-image: url('../images/bg_img2.jpg'); /* Add background image */
-         background-size: auto;
+         background-size: cover; /* Ensure the background image covers the full page */
          background-position: center;
          background-repeat: no-repeat;
          z-index: -1;
       }
       .content {
+         flex: 1;
          position: relative;
          z-index: 1;
+      }
+      footer {
+         margin-top: auto;
+         width: 100%;
       }
       .box a:hover i {
          color: #1E90FF; /* Custom color */
@@ -80,6 +88,7 @@ $total_comments = $select_comments->rowCount();
       }
       .box {
          transition: transform 0.3s, box-shadow 0.3s;
+         background-color: rgba(63, 62, 62, 0.5)!important; /* Ensure the box is transparent */
       }
       .box:hover {
          transform: translateY(-10px);
@@ -90,6 +99,9 @@ $total_comments = $select_comments->rowCount();
       }
       .box img.thumb:hover {
          transform: scale(1.05);
+      }
+      .courses .heading {
+         font-size: 4rem; /* Reduced font size */
       }
    </style>
 

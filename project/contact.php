@@ -89,6 +89,7 @@ if(isset($_POST['submit'])){
       }
       .box {
          transition: transform 0.3s, box-shadow 0.3s;
+         background-color: rgba(63, 62, 62, 0.5)!important; /* Ensure the box is transparent */
       }
       .box:hover {
          transform: translateY(-10px);
