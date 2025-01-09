@@ -80,7 +80,7 @@ $total_bookmarked = $select_bookmark->rowCount();
 
 <section class="quick-select">
 
-   <h1 class="heading">Department of Computer Science & Artificial <span>Intelligence</span></h1>
+   <h1 class="heading">Department of Computer Science & Computer <span>Intelligence</span></h1>
 
    <div class="box-container">
 
