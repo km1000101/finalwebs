@@ -2,6 +2,8 @@
 
 include 'components/connect.php';
 
+session_start();
+
 if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
 }else{
@@ -87,26 +89,26 @@ $total_bookmarked = $select_bookmark->rowCount();
       <div class="box">
          <h3 class="title">top categories</h3>
          <div class="flex">
-            <a href="search_course.php?"><i class="fas fa-code"></i><span>development</span></a>
-            <a href="#"><i class="fas fa-chart-simple"></i><span>business</span></a>
-            <a href="#"><i class="fas fa-pen"></i><span>design</span></a>
-            <a href="#"><i class="fas fa-chart-line"></i><span>marketing</span></a>
-            <a href="#"><i class="fas fa-music"></i><span>music</span></a>
-            <a href="#"><i class="fas fa-camera"></i><span>photography</span></a>
-            <a href="#"><i class="fas fa-cog"></i><span>software</span></a>
-            <a href="#"><i class="fas fa-vial"></i><span>science</span></a>
+            <a href="search_course.php?" class="category-btn"><i class="fas fa-code"></i><span>development</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-chart-simple"></i><span>business</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-pen"></i><span>design</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-chart-line"></i><span>marketing</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-music"></i><span>music</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-camera"></i><span>photography</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-cog"></i><span>software</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-vial"></i><span>science</span></a>
          </div>
       </div>
 
       <div class="box">
          <h3 class="title">popular topics</h3>
          <div class="flex">
-            <a href="#"><i class="fab fa-html5"></i><span>HTML</span></a>
-            <a href="#"><i class="fab fa-css3"></i><span>CSS</span></a>
-            <a href="#"><i class="fab fa-js"></i><span>javascript</span></a>
-            <a href="#"><i class="fab fa-react"></i><span>react</span></a>
-            <a href="#"><i class="fab fa-php"></i><span>PHP</span></a>
-            <a href="#"><i class="fab fa-bootstrap"></i><span>bootstrap</span></a>
+            <a href="#" class="topic-btn"><i class="fab fa-html5"></i><span>HTML</span></a>
+            <a href="#" class="topic-btn"><i class="fab fa-css3"></i><span>CSS</span></a>
+            <a href="#" class="topic-btn"><i class="fab fa-js"></i><span>javascript</span></a>
+            <a href="#" class="topic-btn"><i class="fab fa-react"></i><span>react</span></a>
+            <a href="#" class="topic-btn"><i class="fab fa-php"></i><span>PHP</span></a>
+            <a href="#" class="topic-btn"><i class="fab fa-bootstrap"></i><span>bootstrap</span></a>
          </div>
       </div>
 
@@ -115,7 +117,7 @@ $total_bookmarked = $select_bookmark->rowCount();
          <hr>
          <p>Login with the userID and password provided by the department.</p>
          <hr>
-         <a href="admin/register.php" class="inline-btn">get started</a>
+         <a href="admin/register.php" class="inline-btn tutor-login-btn">get started</a>
       </div>
 
    </div>
@@ -165,23 +167,29 @@ $total_bookmarked = $select_bookmark->rowCount();
    </div>
 
    <div class="more-btn">
-      <a href="courses.php" class="inline-option-btn">view more</a>
+      <a href="courses.php" class="inline-option-btn view-more-btn">view more</a>
    </div>
 
 </section>
 
 <!-- courses section ends -->
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   const userId = '<?= $user_id; ?>';
+   const buttons = document.querySelectorAll('.inline-btn, .option-btn, .view-more-btn, .nav-btn, .category-btn, .topic-btn');
 
-
-
-
-
-
-
-
-
-
+   buttons.forEach(button => {
+      button.addEventListener('click', function(event) {
+         if (!userId && !button.classList.contains('tutor-login-btn') && !button.classList.contains('home-btn')) {
+            event.preventDefault();
+            alert('Please log in to continue.');
+            window.location.href = 'login.php';
+         }
+      });
+   });
+});
+</script>
 
 <!-- footer section starts  -->
 <?php include 'components/footer.php'; ?>
