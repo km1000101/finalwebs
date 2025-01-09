@@ -45,6 +45,17 @@ $total_bookmarked = $select_bookmark->rowCount();
       .heading span {
          color: orange; /* Change intelligence text color to orange */
       }
+      .heading {
+         opacity: 0;
+         transform: translateY(50px);
+         animation: fade-slide-up 1s forwards;
+      }
+      @keyframes fade-slide-up {
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
    </style>
 
 </head>
