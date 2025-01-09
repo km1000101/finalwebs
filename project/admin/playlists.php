@@ -51,6 +51,65 @@ if(isset($_POST['delete'])){
    <link rel="stylesheet" href="../css/admin_style.css">
 
    <style>
+      body {
+         background: url('../images/bg_img2.jpg') no-repeat center center fixed;
+         background-size: cover;
+      }
+      .playlists {
+         padding: 20px;
+      }
+      .box-container {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 20px;
+         justify-content: center;
+      }
+      .box {
+         background-color: transparent;
+         border-radius: 10px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         padding: 20px;
+         transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .box:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .thumb {
+         border-radius: 10px;
+         margin-bottom: 10px;
+         transition: transform 0.3s;
+      }
+      .thumb:hover {
+         transform: scale(1.05);
+      }
+      .title {
+         font-size: 1.2rem;
+         margin-bottom: 10px;
+      }
+      .flex {
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 10px;
+      }
+      .flex-btn {
+         display: flex;
+         gap: 10px;
+      }
+      .btn, .option-btn, .delete-btn {
+         padding: 10px 20px;
+         border-radius: 5px;
+         transition: background-color 0.3s;
+      }
+      .btn:hover, .option-btn:hover, .delete-btn:hover {
+         background-color: #333;
+         color: #fff;
+      }
+      .empty {
+         text-align: center;
+         font-size: 1.2rem;
+         color: #666;
+      }
       .box a:hover i {
          color: #1E90FF; /* Custom color */
       }
@@ -67,19 +126,6 @@ if(isset($_POST['delete'])){
             opacity: 1;
             transform: translateY(0);
          }
-      }
-      .box {
-         transition: transform 0.3s, box-shadow 0.3s;
-      }
-      .box:hover {
-         transform: translateY(-10px);
-         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-      .box img.thumb {
-         transition: transform 0.3s;
-      }
-      .box img.thumb:hover {
-         transform: scale(1.05);
       }
    </style>
 

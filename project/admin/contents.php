@@ -53,6 +53,13 @@ if(isset($_POST['delete_video'])){
    <link rel="stylesheet" href="../css/admin_style.css">
 
    <style>
+      body {
+         background: url('../images/bg_img2.jpg') no-repeat center center fixed;
+         background-size: cover;
+      }
+      .contents {
+         padding: 20px;
+      }
       .box-container {
          display: flex;
          flex-wrap: wrap;
@@ -60,18 +67,23 @@ if(isset($_POST['delete_video'])){
          justify-content: center;
       }
       .box {
-         background-color: #fff;
+         background-color: transparent;
          border-radius: 10px;
          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
          padding: 20px;
-         transition: transform 0.3s;
+         transition: transform 0.3s, box-shadow 0.3s;
       }
       .box:hover {
          transform: translateY(-10px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       }
       .thumb {
          border-radius: 10px;
          margin-bottom: 10px;
+         transition: transform 0.3s;
+      }
+      .thumb:hover {
+         transform: scale(1.05);
       }
       .title {
          font-size: 1.2rem;
@@ -99,6 +111,23 @@ if(isset($_POST['delete_video'])){
          text-align: center;
          font-size: 1.2rem;
          color: #666;
+      }
+      .box a:hover i {
+         color: #1E90FF; /* Custom color */
+      }
+      .heading span {
+         color: orange; /* Change intelligence text color to orange */
+      }
+      .heading {
+         opacity: 0;
+         transform: translateY(50px);
+         animation: fade-slide-up 1s forwards;
+      }
+      @keyframes fade-slide-up {
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
       }
    </style>
 
@@ -150,23 +179,15 @@ if(isset($_POST['delete_video'])){
 
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php include '../components/footer.php'; ?>
 
 <script src="../js/admin_script.js"></script>
+
+<script>
+   document.querySelectorAll('.contents .box-container .box .description').forEach(content => {
+      if(content.innerHTML.length > 100) content.innerHTML = content.innerHTML.slice(0, 100);
+   });
+</script>
 
 </body>
 </html>

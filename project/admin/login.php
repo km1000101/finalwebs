@@ -2,6 +2,12 @@
 
 include '../components/connect.php';
 
+if(isset($_COOKIE['tutor_id'])){
+   $tutor_id = $_COOKIE['tutor_id'];
+}else{
+   $tutor_id = '';
+}
+
 if(isset($_POST['submit'])){
 
    $email = $_POST['email'];
@@ -9,21 +15,13 @@ if(isset($_POST['submit'])){
    $pass = sha1($_POST['pass']);
    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
 
-   // Hardcoded credentials
-   $allowed_email = 'hemanth@gmail.com';
-   $allowed_password = sha1('caits001');
-
-   if($email === $allowed_email && $pass === $allowed_password){
-      $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE email = ? LIMIT 1");
-      $select_tutor->execute([$email]);
-      $row = $select_tutor->fetch(PDO::FETCH_ASSOC);
-      
-      if($select_tutor->rowCount() > 0){
-         setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
-         header('location:dashboard.php');
-      } else {
-         $message[] = 'Tutor not found!';
-      }
+   $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE email = ? AND password = ? LIMIT 1");
+   $select_tutor->execute([$email, $pass]);
+   $row = $select_tutor->fetch(PDO::FETCH_ASSOC);
+   
+   if($select_tutor->rowCount() > 0){
+     setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
+     header('location:dashboard.php');
    }else{
       $message[] = 'incorrect email or password!';
    }
@@ -47,53 +45,88 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="../css/admin_style.css">
 
    <style>
-   .btn-small {
-       background-color: var(--main-color);
-       border: none;
-       color: white;
-       padding: 8px 16px; /* Increase padding to make it bigger */
-       text-align: center;
-       text-decoration: none;
-       display: inline-block;
-       font-size: 14px; /* Increase font size */
-       margin: 4px 2px;
-       cursor: pointer;
-   }
-   .box a:hover i {
-      color: #1E90FF; /* Custom color */
-   }
-   .heading span {
-      color: orange; /* Change intelligence text color to orange */
-   }
-   .heading {
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fade-slide-up 1s forwards;
-   }
-   @keyframes fade-slide-up {
-      to {
-         opacity: 1;
-         transform: translateY(0);
+      body {
+         background-color: #f0f0f0; /* Fallback color */
       }
-   }
-   .box {
-      transition: transform 0.3s, box-shadow 0.3s;
-   }
-   .box:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-   }
-   .box img.thumb {
-      transition: transform 0.3s;
-   }
-   .box img.thumb:hover {
-      transform: scale(1.05);
-   }
+      .background-image {
+         position: fixed;
+         top: 0; /* Adjust according to header height */
+         bottom: 0; /* Adjust according to footer height */
+         left: 0;
+         right: 0;
+         background-image: url('../images/bg_img2.jpg'); /* Add background image */
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         z-index: -1;
+      }
+      .content {
+         position: relative;
+         z-index: 1;
+      }
+      .box a:hover i {
+         color: #1E90FF; /* Custom color */
+      }
+      .heading span {
+         color: orange; /* Change intelligence text color to orange */
+      }
+      .heading {
+         opacity: 0;
+         transform: translateY(50px);
+         animation: fade-slide-up 1s forwards;
+      }
+      @keyframes fade-slide-up {
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+      .box {
+         transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .box:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .box img.thumb {
+         transition: transform 0.3s;
+      }
+      .box img.thumb:hover {
+         transform: scale(1.05);
+      }
+      .btn-small {
+         color: orange;
+         font-size: 3.5rem; /* Make the button a bit bigger */
+         text-decoration: none;
+         margin-right: 10px;
+         vertical-align: middle; /* Align with text */
+      }
+      .btn-small:hover {
+         color: darkorange;
+      }
+      .form-container h3 {
+         display: inline-block;
+         margin-left: 10px;
+         vertical-align: middle; /* Align with button */
+      }
+      .form-container .header {
+         display: flex;
+         justify-content: center; /* Center the header */
+         align-items: center;
+         position: relative;
+      }
+      .form-container .header .btn-small {
+         position: absolute;
+         left: 0;
+      }
    </style>
 
 </head>
 <body style="padding-left: 0;">
 
+<div class="background-image"></div>
+
+<div class="content">
 <?php
 if(isset($message)){
    foreach($message as $message){
@@ -112,9 +145,10 @@ if(isset($message)){
 <section class="form-container">
 
    <form action="" method="post" enctype="multipart/form-data" class="login">
-      <!-- Add small home button with arrow symbol to the left side of the welcome back text -->
-      <a href="../home.php" class="btn-small">&larr;</a>
-      <h3>welcome back!</h3>
+      <div class="header">
+         <!-- Add small home button with arrow symbol to the left side of the welcome back text -->
+         <a href="../home.php" class="btn-small">&larr;</a><h3>welcome back!</h3>
+      </div>
       <p>your email <span>*</span></p>
       <input type="email" name="email" placeholder="enter your email" maxlength="20" required class="box">
       <p>your password <span>*</span></p>
@@ -150,5 +184,6 @@ if(darkMode === 'enabled'){
 
 </script>
    
+</div>
 </body>
 </html>

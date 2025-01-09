@@ -2,6 +2,8 @@
 
 include 'components/connect.php';
 
+session_start();
+
 if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
 }else{
@@ -16,7 +18,7 @@ if(isset($_COOKIE['user_id'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>about</title>
+   <title>about us</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -25,6 +27,25 @@ if(isset($_COOKIE['user_id'])){
    <link rel="stylesheet" href="css/style.css">
 
    <style>
+      body {
+         background-color: #f0f0f0; /* Fallback color */
+      }
+      .background-image {
+         position: fixed;
+         top: 60px; /* Adjust according to header height */
+         bottom: 60px; /* Adjust according to footer height */
+         left: 0;
+         right: 0;
+         background-image: url('images/bg_img2.jpg'); /* Add background image */
+         background-size: auto;
+         background-position: center;
+         background-repeat: no-repeat;
+         z-index: -1;
+      }
+      .content {
+         position: relative;
+         z-index: 1;
+      }
       .box a:hover i {
          color: #1E90FF; /* Custom color */
       }
@@ -53,13 +74,19 @@ if(isset($_COOKIE['user_id'])){
          transition: transform 0.3s;
       }
       .box img.thumb:hover {
-         transform: scale(1.1);
+         transform: scale(1.05);
+      }
+      .courses .heading {
+         font-size: 4rem; /* Reduced font size */
       }
    </style>
 
 </head>
 <body>
 
+<div class="background-image"></div>
+
+<div class="content">
 <?php include 'components/user_header.php'; ?>
 
 <!-- about section starts  -->
@@ -253,6 +280,23 @@ if(isset($_COOKIE['user_id'])){
 
 <!-- reviews section ends -->
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   const userId = '<?= $user_id; ?>';
+   const buttons = document.querySelectorAll('.inline-btn, .option-btn, .view-more-btn, .nav-btn, .category-btn, .topic-btn');
+
+   buttons.forEach(button => {
+      button.addEventListener('click', function(event) {
+         if (!userId && !button.classList.contains('tutor-login-btn') && !button.classList.contains('home-btn')) {
+            event.preventDefault();
+            alert('Please log in to continue.');
+            window.location.href = 'login.php';
+         }
+      });
+   });
+});
+</script>
+
 <?php include 'components/footer.php'; ?>
 
 <!-- custom js file link  -->
@@ -290,5 +334,6 @@ if(isset($_COOKIE['user_id'])){
    });
 </script>
    
+</div>
 </body>
 </html>

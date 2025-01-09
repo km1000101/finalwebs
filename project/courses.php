@@ -2,6 +2,8 @@
 
 include 'components/connect.php';
 
+session_start();
+
 if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
 }else{
@@ -25,6 +27,25 @@ if(isset($_COOKIE['user_id'])){
    <link rel="stylesheet" href="css/style.css">
 
    <style>
+      body {
+         background-color: #f0f0f0; /* Fallback color */
+      }
+      .background-image {
+         position: fixed;
+         top: 60px; /* Adjust according to header height */
+         bottom: 60px; /* Adjust according to footer height */
+         left: 0;
+         right: 0;
+         background-image: url('images/bg_img2.jpg'); /* Add background image */
+         background-size: auto;
+         background-position: center;
+         background-repeat: no-repeat;
+         z-index: -1;
+      }
+      .content {
+         position: relative;
+         z-index: 1;
+      }
       .box a:hover i {
          color: #1E90FF; /* Custom color */
       }
@@ -55,18 +76,24 @@ if(isset($_COOKIE['user_id'])){
       .box img.thumb:hover {
          transform: scale(1.05);
       }
+      .courses .heading {
+         font-size: 4rem; /* Reduced font size */
+      }
    </style>
 
 </head>
 <body>
 
+<div class="background-image"></div>
+
+<div class="content">
 <?php include 'components/user_header.php'; ?>
 
 <!-- courses section starts  -->
 
 <section class="courses">
 
-   <h1 class="heading">all courses</h1>
+   <h1 class="heading">our courses</h1>
 
    <div class="box-container">
 
@@ -106,19 +133,29 @@ if(isset($_COOKIE['user_id'])){
 
 <!-- courses section ends -->
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   const userId = '<?= $user_id; ?>';
+   const buttons = document.querySelectorAll('.inline-btn, .option-btn, .view-more-btn, .nav-btn, .category-btn, .topic-btn');
 
+   buttons.forEach(button => {
+      button.addEventListener('click', function(event) {
+         if (!userId && !button.classList.contains('tutor-login-btn') && !button.classList.contains('home-btn')) {
+            event.preventDefault();
+            alert('Please log in to continue.');
+            window.location.href = 'login.php';
+         }
+      });
+   });
+});
+</script>
 
-
-
-
-
-
-
-
+<!-- footer section starts  -->
 <?php include 'components/footer.php'; ?>
+<!-- footer section ends -->
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
-   
+</div>
 </body>
 </html>

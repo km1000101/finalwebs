@@ -42,6 +42,25 @@ $total_comments = $select_comments->rowCount();
    <link rel="stylesheet" href="../css/admin_style.css">
 
    <style>
+      body {
+         background-color: #f0f0f0; /* Fallback color */
+      }
+      .background-image {
+         position: fixed;
+         top: 60px; /* Adjust according to header height */
+         bottom: 60px; /* Adjust according to footer height */
+         left: 0;
+         right: 0;
+         background-image: url('../images/bg_img2.jpg'); /* Add background image */
+         background-size: auto;
+         background-position: center;
+         background-repeat: no-repeat;
+         z-index: -1;
+      }
+      .content {
+         position: relative;
+         z-index: 1;
+      }
       .box a:hover i {
          color: #1E90FF; /* Custom color */
       }
@@ -77,6 +96,9 @@ $total_comments = $select_comments->rowCount();
 </head>
 <body>
 
+<div class="background-image"></div>
+
+<div class="content">
 <?php include '../components/admin_header.php'; ?>
    
 <section class="dashboard">
@@ -132,5 +154,6 @@ $total_comments = $select_comments->rowCount();
 
 <script src="../js/admin_script.js"></script>
 
+</div>
 </body>
 </html>

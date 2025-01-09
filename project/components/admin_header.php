@@ -12,7 +12,13 @@ if(isset($message)){
 ?>
 
 <?php
-$tutor_id = $_COOKIE['tutor_id'];
+
+if(isset($_COOKIE['tutor_id'])){
+   $tutor_id = $_COOKIE['tutor_id'];
+} else {
+   $tutor_id = '';
+}
+
 $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE id = ?");
 $select_tutor->execute([$tutor_id]);
 $fetch_tutor = $select_tutor->fetch(PDO::FETCH_ASSOC);

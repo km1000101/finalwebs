@@ -45,6 +45,25 @@ if(isset($_POST['submit'])){
    <link rel="stylesheet" href="css/style.css">
 
    <style>
+      body {
+         background-color: #f0f0f0; /* Fallback color */
+      }
+      .background-image {
+         position: fixed;
+         top: 60px; /* Adjust according to header height */
+         bottom: 60px; /* Adjust according to footer height */
+         left: 0;
+         right: 0;
+         background-image: url('images/bg_img2.jpg'); /* Add background image */
+         background-size: auto;
+         background-position: center;
+         background-repeat: no-repeat;
+         z-index: -1;
+      }
+      .content {
+         position: relative;
+         z-index: 1;
+      }
       .box a:hover i {
          color: #1E90FF; /* Custom color */
       }
@@ -80,6 +99,9 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 
+<div class="background-image"></div>
+
+<div class="content">
 <?php include 'components/user_header.php'; ?>
 
 <section class="form-container">
@@ -101,5 +123,6 @@ if(isset($_POST['submit'])){
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
    
+</div>
 </body>
 </html>
