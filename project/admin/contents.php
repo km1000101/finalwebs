@@ -134,6 +134,9 @@ if(isset($_POST['delete_video'])){
 </head>
 <body>
 
+<div class="background-image"></div>
+
+<div class="content">
 <?php include '../components/admin_header.php'; ?>
    
 <section class="contents">
@@ -189,5 +192,25 @@ if(isset($_POST['delete_video'])){
    });
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   let lastScrollTop = 0;
+   const footer = document.querySelector('footer');
+
+   window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+         footer.style.transition = 'bottom 0.5s ease-in-out';
+         footer.style.bottom = '-60px'; // Adjust according to footer height
+      } else {
+         footer.style.transition = 'bottom 0.5s ease-in-out';
+         footer.style.bottom = '0';
+      }
+      lastScrollTop = scrollTop;
+   });
+});
+</script>
+
+</div>
 </body>
 </html>

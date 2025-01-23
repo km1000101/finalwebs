@@ -11,7 +11,7 @@
          font-size: 24px;
       }
       .social-links a:hover {
-         color: #0056b3; /* Darker blue on hover */
+         color:rgb(4, 113, 197); /* Darker blue on hover */
       }
    </style>
 </head>

@@ -101,6 +101,9 @@ $total_bookmarked = $select_bookmark->rowCount();
       .footer a:hover i {
          transform: scale(1.2);
       }
+      footer {
+         transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
+      }
    </style>
 
 </head>

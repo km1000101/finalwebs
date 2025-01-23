@@ -66,9 +66,79 @@ if(isset($_POST['submit'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../css/admin_style.css">
 
+   <style>
+      body {
+         display: flex;
+         flex-direction: column;
+         min-height: 100vh;
+         background-color: #f0f0f0; /* Fallback color */
+      }
+      .background-image {
+         position: fixed;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         background-image: url('../images/bg_img2.jpg'); /* Add background image */
+         background-size: cover; /* Ensure the background image covers the full page */
+         background-position: center;
+         background-repeat: no-repeat;
+         z-index: -1;
+      }
+      .content {
+         flex: 1;
+         position: relative;
+         z-index: 1;
+      }
+      footer {
+         margin-top: auto;
+         width: 100%;
+         transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
+      }
+      .box a:hover i {
+         color: #1E90FF; /* Custom color */
+      }
+      .heading span {
+         color: orange; /* Change intelligence text color to orange */
+      }
+      .heading {
+         opacity: 0;
+         transform: translateY(50px);
+         animation: fade-slide-up 1s forwards;
+         color: white; /* Change heading color to white */
+      }
+      @keyframes fade-slide-up {
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+      .box {
+         transition: transform 0.3s, box-shadow 0.3s;
+         background-color: rgba(63, 62, 62, 0.5)!important; /* Ensure the box is transparent */
+         color: white; /* Change box text color to white */
+      }
+      .box:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .box img.thumb {
+         transition: transform 0.3s;
+      }
+      .box img.thumb:hover {
+         transform: scale(1.05);
+      }
+      .courses .heading {
+         font-size: 4rem; /* Reduced font size */
+      }
+   </style>
+
 </head>
 <body>
 
+<div class="background-image"></div>
+
+<div class="content">
 <?php include '../components/admin_header.php'; ?>
    
 <section class="video-form">
@@ -115,23 +185,28 @@ if(isset($_POST['submit'])){
 
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php include '../components/footer.php'; ?>
 
 <script src="../js/admin_script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   let lastScrollTop = 0;
+   const footer = document.querySelector('footer');
 
+   window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+         footer.style.transition = 'bottom 0.5s ease-in-out';
+         footer.style.bottom = '-60px'; // Adjust according to footer height
+      } else {
+         footer.style.transition = 'bottom 0.5s ease-in-out';
+         footer.style.bottom = '0';
+      }
+      lastScrollTop = scrollTop;
+   });
+});
+</script>
+
+</div>
 </body>
 </html>

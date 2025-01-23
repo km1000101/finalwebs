@@ -68,6 +68,7 @@ $total_comments = $select_comments->rowCount();
       footer {
          margin-top: auto;
          width: 100%;
+         transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
       }
       .box a:hover i {
          color: #1E90FF; /* Custom color */

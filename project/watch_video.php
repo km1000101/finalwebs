@@ -2,6 +2,8 @@
 
 include 'components/connect.php';
 
+session_start();
+
 if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
 }else{
@@ -140,9 +142,71 @@ if(isset($_POST['update_now'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
+   <style>
+      body {
+         background-color: #f0f0f0; /* Fallback color */
+      }
+      .background-image {
+         position: fixed;
+         top: 60px; /* Adjust according to header height */
+         bottom: 60px; /* Adjust according to footer height */
+         left: 0;
+         right: 0;
+         background-image: url('images/bg_img2.jpg'); /* Add background image */
+         background-size: auto;
+         background-position: center;
+         background-repeat: no-repeat;
+         z-index: -1;
+      }
+      .content {
+         position: relative;
+         z-index: 1;
+      }
+      .box a:hover i {
+         color: #1E90FF; /* Custom color */
+      }
+      .heading span {
+         color: orange; /* Change intelligence text color to orange */
+      }
+      .heading {
+         opacity: 0;
+         transform: translateY(50px);
+         animation: fade-slide-up 1s forwards;
+      }
+      @keyframes fade-slide-up {
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+      .box {
+         transition: transform 0.3s, box-shadow 0.3s;
+         background-color: rgba(63, 62, 62, 0.5)!important; /* Ensure the box is transparent */
+      }
+      .box:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .box img.thumb {
+         transition: transform 0.3s;
+      }
+      .box img.thumb:hover {
+         transform: scale(1.05);
+      }
+      .courses .heading {
+         font-size: 4rem; /* Reduced font size */
+      }
+      footer {
+         transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
+      }
+   </style>
+
 </head>
 <body>
 
+<div class="background-image"></div>
+
+<div class="content">
 <?php include 'components/user_header.php'; ?>
 
 <?php
@@ -294,17 +358,41 @@ if(isset($_POST['update_now'])){
 
 <!-- comments section ends -->
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   const userId = '<?= $user_id; ?>';
+   const buttons = document.querySelectorAll('.inline-btn, .option-btn, .view-more-btn, .nav-btn, .category-btn, .topic-btn');
+   const footer = document.querySelector('footer');
+   let lastScrollTop = 0;
 
+   buttons.forEach(button => {
+      button.addEventListener('click', function(event) {
+         if (!userId && !button.classList.contains('tutor-login-btn') && !button.classList.contains('home-btn')) {
+            event.preventDefault();
+            alert('Please log in to continue.');
+            window.location.href = 'login.php';
+         }
+      });
+   });
 
+   window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+         footer.style.bottom = '-60px'; // Adjust according to footer height
+      } else {
+         footer.style.bottom = '0';
+      }
+      lastScrollTop = scrollTop;
+   });
+});
+</script>
 
-
-
-
-
+<!-- footer section starts  -->
 <?php include 'components/footer.php'; ?>
+<!-- footer section ends -->
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
-   
+</div>
 </body>
 </html>

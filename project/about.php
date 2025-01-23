@@ -80,6 +80,13 @@ if(isset($_COOKIE['user_id'])){
       .courses .heading {
          font-size: 4rem; /* Reduced font size */
       }
+      .reviews .box p {
+         color: white; /* Change review text color to white */
+         font-size: 1.2rem; /* Change font size of review text */
+      }
+      footer {
+         transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
+      }
    </style>
 
 </head>
@@ -111,7 +118,7 @@ if(isset($_COOKIE['user_id'])){
       <div class="content">
          <h3>why choose us?</h3>
          <div class="mission">
-            <p>The mission of the Department of CSE (AI) is to:</p>
+            <p style="font-size: 3rem;">The vision of the Department of CSE (AI) is to:</p>
             <ul>
                <li>Provide students with a strong foundation in AI fundamentals, equipping them with the knowledge and skills to thrive in the field.</li>
                <li>Foster a collaborative learning environment that encourages innovation and critical thinking.</li>
@@ -138,7 +145,7 @@ if(isset($_COOKIE['user_id'])){
       <div class="box">
          <i class="fas fa-user-graduate"></i>
          <div>
-            <h3 class="running-number" data-target="25000">0</h3>
+            <h3 class="running-number" data-target="500">0</h3>
             <span>brilliants students</span>
          </div>
       </div>
@@ -146,7 +153,7 @@ if(isset($_COOKIE['user_id'])){
       <div class="box">
          <i class="fas fa-chalkboard-user"></i>
          <div>
-            <h3 class="running-number" data-target="5000">0</h3>
+            <h3 class="running-number" data-target="10">0</h3>
             <span>expert teachers</span>
          </div>
       </div>
@@ -154,7 +161,7 @@ if(isset($_COOKIE['user_id'])){
       <div class="box">
          <i class="fas fa-briefcase"></i>
          <div>
-            <h3 class="running-number" data-target="100">0%</h3>
+            <h3 class="running-number" data-target="0">0%</h3>
             <span>job placement</span>
          </div>
       </div>
@@ -285,6 +292,8 @@ if(isset($_COOKIE['user_id'])){
 document.addEventListener('DOMContentLoaded', function() {
    const userId = '<?= $user_id; ?>';
    const buttons = document.querySelectorAll('.inline-btn, .option-btn, .view-more-btn, .nav-btn, .category-btn, .topic-btn');
+   const footer = document.querySelector('footer');
+   let lastScrollTop = 0;
 
    buttons.forEach(button => {
       button.addEventListener('click', function(event) {
@@ -294,6 +303,16 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'login.php';
          }
       });
+   });
+
+   window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+         footer.style.bottom = '-60px'; // Adjust according to footer height
+      } else {
+         footer.style.bottom = '0';
+      }
+      lastScrollTop = scrollTop;
    });
 });
 </script>

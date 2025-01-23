@@ -104,6 +104,9 @@ if(isset($_POST['submit'])){
       .courses .heading {
          font-size: 4rem; /* Reduced font size */
       }
+      footer {
+         transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
+      }
    </style>
 
 </head>
@@ -170,6 +173,8 @@ if(isset($_POST['submit'])){
 document.addEventListener('DOMContentLoaded', function() {
    const userId = '<?= $user_id; ?>';
    const buttons = document.querySelectorAll('.inline-btn, .option-btn, .view-more-btn, .nav-btn, .category-btn, .topic-btn');
+   const footer = document.querySelector('footer');
+   let lastScrollTop = 0;
 
    buttons.forEach(button => {
       button.addEventListener('click', function(event) {
@@ -179,6 +184,16 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'login.php';
          }
       });
+   });
+
+   window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+         footer.style.bottom = '-60px'; // Adjust according to footer height
+      } else {
+         footer.style.bottom = '0';
+      }
+      lastScrollTop = scrollTop;
    });
 });
 </script>

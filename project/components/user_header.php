@@ -13,10 +13,13 @@ if(isset($message)){
 
 <style>
    .navbar a:hover i {
-      color:rgb(25, 42, 134); /* Custom color */
+      color:rgb(4, 113, 197); /* Custom color */
    }
    #toggle-btn {
       display: none; /* Hide the moon icon */
+   }
+   .search-form button {
+      color: orange; /* Change search icon color to orange */
    }
 </style>
 

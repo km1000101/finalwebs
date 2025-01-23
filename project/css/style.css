@@ -1584,7 +1584,7 @@ section{
 }
 
 .mission p {
-   font-size: 3.5rem; /* Increased font size */
+   font-size: 10rem; /* Increased font size */
    color: var(--light-color);
    margin-bottom: 1rem;
 }
