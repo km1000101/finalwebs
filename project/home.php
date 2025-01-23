@@ -68,6 +68,7 @@ $total_bookmarked = $select_bookmark->rowCount();
          opacity: 0;
          transform: translateY(50px);
          animation: fade-slide-up 1s forwards;
+         color: white; /* Change heading color to white */
       }
       @keyframes fade-slide-up {
          to {
@@ -79,6 +80,7 @@ $total_bookmarked = $select_bookmark->rowCount();
       .box {
          transition: transform 0.3s, box-shadow 0.3s;
          background-color: rgba(63, 62, 62, 0.5) !important; /* Ensure the box is transparent */
+         color: white; /* Change box text color to white */
       }
       .box:hover {
          transform: translateY(-10px);
@@ -229,6 +231,9 @@ $total_bookmarked = $select_bookmark->rowCount();
 document.addEventListener('DOMContentLoaded', function() {
    const userId = '<?= $user_id; ?>';
    const buttons = document.querySelectorAll('.inline-btn, .option-btn, .view-more-btn, .nav-btn, .category-btn, .topic-btn');
+   const header = document.querySelector('header');
+   const footer = document.querySelector('footer');
+   let lastScrollTop = 0;
 
    buttons.forEach(button => {
       button.addEventListener('click', function(event) {
@@ -238,6 +243,16 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'login.php';
          }
       });
+   });
+
+   window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+         footer.style.bottom = '-60px'; // Adjust according to footer height
+      } else {
+         footer.style.bottom = '0';
+      }
+      lastScrollTop = scrollTop;
    });
 });
 </script>
