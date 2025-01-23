@@ -15,6 +15,9 @@ if(isset($message)){
    .navbar a:hover i {
       color:rgb(25, 42, 134); /* Custom color */
    }
+   #toggle-btn {
+      display: none; /* Hide the moon icon */
+   }
 </style>
 
 <header class="header">

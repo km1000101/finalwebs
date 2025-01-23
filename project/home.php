@@ -110,7 +110,6 @@ $total_bookmarked = $select_bookmark->rowCount();
 
 <div class="content">
 <?php include 'components/user_header.php'; ?>
-
 <!-- quick select section starts  -->
 
 <section class="quick-select">
