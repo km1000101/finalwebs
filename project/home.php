@@ -95,6 +95,12 @@ $total_bookmarked = $select_bookmark->rowCount();
       .courses .heading {
          font-size: 4rem; /* Reduced font size */
       }
+      .footer a i {
+         transition: transform 0.3s;
+      }
+      .footer a:hover i {
+         transform: scale(1.2);
+      }
    </style>
 
 </head>
