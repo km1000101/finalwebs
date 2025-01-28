@@ -58,11 +58,30 @@ if(isset($_POST['save_list'])){
    <link rel="stylesheet" href="css/style.css">
 
    <style>
+      body {
+         background-color: #f0f0f0; /* Fallback color */
+      }
+      .background-image {
+         position: fixed;
+         top: 60px; /* Adjust according to header height */
+         bottom: 60px; /* Adjust according to footer height */
+         left: 0;
+         right: 0;
+         background-image: url('images/bg_img2.jpg'); /* Add background image */
+         background-size: auto;
+         background-position: center;
+         background-repeat: no-repeat;
+         z-index: -1;
+      }
+      .content {
+         position: relative;
+         z-index: 1;
+      }
       .box a:hover i {
          color: #1E90FF; /* Custom color */
       }
       .heading span {
-         color orange; /* Change intelligence text color to orange */
+         color: orange; /* Change intelligence text color to orange */
       }
       .heading {
          opacity: 0;
@@ -77,6 +96,7 @@ if(isset($_POST['save_list'])){
       }
       .box {
          transition: transform 0.3s, box-shadow 0.3s;
+         background-color: rgba(63, 62, 62, 0.5)!important; /* Ensure the box is transparent */
       }
       .box:hover {
          transform: translateY(-10px);
@@ -88,11 +108,20 @@ if(isset($_POST['save_list'])){
       .box img.thumb:hover {
          transform: scale(1.05);
       }
+      .courses .heading {
+         font-size: 4rem; /* Reduced font size */
+      }
+      footer {
+         transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
+      }
    </style>
 
 </head>
 <body>
 
+<div class="background-image"></div>
+
+<div class="content">
 <?php include 'components/user_header.php'; ?>
 
 <!-- playlist section starts  -->
@@ -219,5 +248,6 @@ if(isset($_POST['save_list'])){
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
    
+</div>
 </body>
 </html>

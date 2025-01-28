@@ -127,7 +127,7 @@ if(isset($_COOKIE['user_id'])){
             </ul>
          </div>
          <div style="text-align: center;">
-            <a href="courses.php" class="inline-btn">our courses</a>
+            <a href="courses.php" class="inline-btn">Our Courses</a>
          </div>
       </div>
 
@@ -139,7 +139,7 @@ if(isset($_COOKIE['user_id'])){
          <i class="fas fa-graduation-cap"></i>
          <div>
             <h3 class="running-number" data-target="1000">0</h3>
-            <span>online courses</span>
+            <span>Online Courses</span>
          </div>
       </div>
 
@@ -147,7 +147,7 @@ if(isset($_COOKIE['user_id'])){
          <i class="fas fa-user-graduate"></i>
          <div>
             <h3 class="running-number" data-target="500">0</h3>
-            <span>brilliants students</span>
+            <span>Brilliants Students</span>
          </div>
       </div>
 
@@ -155,7 +155,7 @@ if(isset($_COOKIE['user_id'])){
          <i class="fas fa-chalkboard-user"></i>
          <div>
             <h3 class="running-number" data-target="10">0</h3>
-            <span>expert teachers</span>
+            <span>Expert Teachers</span>
          </div>
       </div>
 
@@ -163,7 +163,7 @@ if(isset($_COOKIE['user_id'])){
          <i class="fas fa-briefcase"></i>
          <div>
             <h3 class="running-number" data-target="0">0%</h3>
-            <span>job placement</span>
+            <span>Job Placement</span>
          </div>
       </div>
 
@@ -177,7 +177,7 @@ if(isset($_COOKIE['user_id'])){
 
 <section class="reviews">
 
-   <h1 class="heading">student's reviews</h1>
+   <h1 class="heading">Student's Reviews</h1>
 
    <div class="box-container">
 

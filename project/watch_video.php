@@ -263,7 +263,7 @@ if(isset($_POST['update_now'])){
       <h3 class="title"><?= $fetch_content['title']; ?></h3>
       <div class="info">
          <p><i class="fas fa-calendar"></i><span><?= $fetch_content['date']; ?></span></p>
-         <p><i class="fas fa-heart"></i><span><?= $total_likes; ?> likes</span></p>
+         <p><i class="fas fa-heart"></i><span><?= $total_likes; ?> Likes</span></p>
       </div>
       <div class="tutor">
          <img src="uploaded_files/<?= $fetch_tutor['image']; ?>" alt="">
@@ -274,15 +274,15 @@ if(isset($_POST['update_now'])){
       </div>
       <form action="" method="post" class="flex">
          <input type="hidden" name="content_id" value="<?= $content_id; ?>">
-         <a href="playlist.php?get_id=<?= $fetch_content['playlist_id']; ?>" class="inline-btn">view playlist</a>
+         <a href="playlist.php?get_id=<?= $fetch_content['playlist_id']; ?>" class="inline-btn">View Playlist</a>
          <?php
             if($verify_likes->rowCount() > 0){
          ?>
-         <button type="submit" name="like_content"><i class="fas fa-heart"></i><span>liked</span></button>
+         <button type="submit" name="like_content"><i class="fas fa-heart"></i><span>Liked</span></button>
          <?php
          }else{
          ?>
-         <button type="submit" name="like_content"><i class="far fa-heart"></i><span>like</span></button>
+         <button type="submit" name="like_content"><i class="far fa-heart"></i><span>Like</span></button>
          <?php
             }
          ?>
@@ -304,7 +304,7 @@ if(isset($_POST['update_now'])){
 
 <section class="comments">
 
-   <h1 class="heading">add a comment</h1>
+   <h1 class="heading">Add a Comment</h1>
 
    <form action="" method="post" class="add-comment">
       <input type="hidden" name="content_id" value="<?= $get_id; ?>">
@@ -312,7 +312,7 @@ if(isset($_POST['update_now'])){
       <input type="submit" value="add comment" name="add_comment" class="inline-btn">
    </form>
 
-   <h1 class="heading">user comments</h1>
+   <h1 class="heading">User Comments</h1>
 
    
    <div class="show-comments">
@@ -339,7 +339,7 @@ if(isset($_POST['update_now'])){
          ?>
          <form action="" method="post" class="flex-btn">
             <input type="hidden" name="comment_id" value="<?= $fetch_comment['id']; ?>">
-            <button type="submit" name="edit_comment" class="inline-option-btn">edit comment</button>
+            <button type="submit" name="edit_comment" class="inline-option-btn">Edit Comment</button>
             <button type="submit" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">delete comment</button>
          </form>
          <?php

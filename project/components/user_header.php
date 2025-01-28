@@ -62,21 +62,21 @@ if(isset($message)){
          <!-- Display user profile information -->
          <img src="uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
          <h3><?= $fetch_profile['name']; ?></h3>
-         <span>student</span>
-         <a href="profile.php" class="btn">view profile</a>
+         <span>Student</span>
+         <a href="profile.php" class="btn">View Profile</a>
          <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">Login</a>
+            <a href="register.php" class="option-btn">Register</a>
          </div>
-         <a href="components/user_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">logout</a>
+         <a href="components/user_logout.php" onclick="return confirm('logout from this website?');" class="delete-btn">Logout</a>
          <?php
             }else{
          ?>
          <!-- Prompt user to login or register if not logged in -->
-         <h3>please login or register</h3>
+         <h3>Please Login or Register</h3>
           <div class="flex-btn">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">Login</a>
+            <a href="register.php" class="option-btn">Register</a>
          </div>
          <?php
             }
@@ -114,10 +114,10 @@ if(isset($message)){
             }else{
          ?>
          <!-- Prompt user to login or register if not logged in -->
-         <h3>please login or register</h3>
+         <h3>Please Login or Register</h3>
           <div class="flex-btn" style="padding-top: .5rem;">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">Login</a>
+            <a href="register.php" class="option-btn">Register</a>
          </div>
          <?php
             }
