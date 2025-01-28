@@ -14,10 +14,12 @@
          color: rgb(4, 113, 197); /* Darker blue on hover */
       }
       .footer {
-         background-color: #121212; /* Dark background color */
+         background-color:rgba(33, 31, 31, 1); /* Make the footer less transparent */
          color: #ffffff; /* Light text color */
-         padding: 20px;
+         padding: 25px;
          text-align: center;
+         transition: bottom .7s ease-in-out; /* Smoother transition for footer */
+
       }
    </style>
 </head>

@@ -36,7 +36,7 @@ $total_bookmarked = $select_bookmark->rowCount();
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>home</title>
+   <title>Home</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -87,7 +87,7 @@ $total_bookmarked = $select_bookmark->rowCount();
       }
       .box {
          transition: transform 0.3s, box-shadow 0.3s;
-         background-color: rgba(63, 62, 62, 0.8) !important; /* Ensure the box is more transparent */
+         background-color: rgba(63, 62, 62, 0.5) !important; /* Ensure the box is more transparent */
          color: #ffffff; /* Change box text color to white */
       }
       .box:hover {
@@ -110,6 +110,10 @@ $total_bookmarked = $select_bookmark->rowCount();
          transform: scale(1.2);
       }
       footer {
+         background-color:rgba(33, 31, 31, 1); /* Make the footer less transparent */
+         color: #ffffff; /* Light text color */
+         padding: 20px;
+         text-align: center;
          transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
       }
    </style>
@@ -126,7 +130,7 @@ $total_bookmarked = $select_bookmark->rowCount();
 
 <section class="quick-select">
 
-   <h1 class="heading">Department of Computer Science & Computer <span>Intelligence</span></h1>
+   <h1 class="heading">Department of Computer Science & Artificial <span>Intelligence</span></h1>
 
    <div class="box-container">
 
@@ -135,22 +139,22 @@ $total_bookmarked = $select_bookmark->rowCount();
          if($user_id != ''){
       ?>
       <div class="box">
-         <h3 class="title">likes and comments</h3>
-         <p>total likes : <span><?= $total_likes; ?></span></p>
-         <a href="likes.php" class="inline-btn">view likes</a>
-         <p>total comments : <span><?= $total_comments; ?></span></p>
-         <a href="comments.php" class="inline-btn">view comments</a>
-         <p>saved playlist : <span><?= $total_bookmarked; ?></span></p>
-         <a href="bookmark.php" class="inline-btn">view bookmark</a>
+         <h3 class="title">Likes and Comments</h3>
+         <p>Total Likes : <span><?= $total_likes; ?></span></p>
+         <a href="likes.php" class="inline-btn">View Likes</a>
+         <p>Total Comments : <span><?= $total_comments; ?></span></p>
+         <a href="comments.php" class="inline-btn">View Comments</a>
+         <p>Saved Playlist : <span><?= $total_bookmarked; ?></span></p>
+         <a href="bookmark.php" class="inline-btn">View Bookmark</a>
       </div>
       <?php
          }else{ 
       ?>
       <div class="box" style="text-align: center;">
-         <h3 class="title">please login or register</h3>
+         <h3 class="title">Please Login or Register</h3>
           <div class="flex-btn" style="padding-top: .5rem;">
-            <a href="login.php" class="option-btn">login</a>
-            <a href="register.php" class="option-btn">register</a>
+            <a href="login.php" class="option-btn">Login</a>
+            <a href="register.php" class="option-btn">Register</a>
          </div>
       </div>
       <?php
@@ -158,37 +162,37 @@ $total_bookmarked = $select_bookmark->rowCount();
       ?>
 
       <div class="box">
-         <h3 class="title">top categories</h3>
+         <h3 class="title">Top Categories</h3>
          <div class="flex">
-            <a href="search_course.php?" class="category-btn"><i class="fas fa-code"></i><span>development</span></a>
-            <a href="#" class="category-btn"><i class="fas fa-chart-simple"></i><span>business</span></a>
-            <a href="#" class="category-btn"><i class="fas fa-pen"></i><span>design</span></a>
-            <a href="#" class="category-btn"><i class="fas fa-chart-line"></i><span>marketing</span></a>
-            <a href="#" class="category-btn"><i class="fas fa-music"></i><span>music</span></a>
-            <a href="#" class="category-btn"><i class="fas fa-camera"></i><span>photography</span></a>
-            <a href="#" class="category-btn"><i class="fas fa-cog"></i><span>software</span></a>
-            <a href="#" class="category-btn"><i class="fas fa-vial"></i><span>science</span></a>
+            <a href="search_course.php?" class="category-btn"><i class="fas fa-code"></i><span>Development</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-chart-simple"></i><span>Business</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-pen"></i><span>Design</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-chart-line"></i><span>Marketing</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-music"></i><span>Music</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-camera"></i><span>Photography</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-cog"></i><span>Software</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-vial"></i><span>Science</span></a>
          </div>
       </div>
 
       <div class="box">
-         <h3 class="title">popular topics</h3>
+         <h3 class="title">Popular Topics</h3>
          <div class="flex">
             <a href="#" class="topic-btn"><i class="fab fa-html5"></i><span>HTML</span></a>
             <a href="#" class="topic-btn"><i class="fab fa-css3"></i><span>CSS</span></a>
-            <a href="#" class="topic-btn"><i class="fab fa-js"></i><span>javascript</span></a>
+            <a href="#" class="topic-btn"><i class="fab fa-js"></i><span>Javascript</span></a>
             <a href="#" class="topic-btn"><i class="fab fa-react"></i><span>react</span></a>
             <a href="#" class="topic-btn"><i class="fab fa-php"></i><span>PHP</span></a>
-            <a href="#" class="topic-btn"><i class="fab fa-bootstrap"></i><span>bootstrap</span></a>
+            <a href="#" class="topic-btn"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></a>
          </div>
       </div>
 
       <div class="box tutor">
-         <h3 class="title">teachers login</h3>
+         <h3 class="title">Teachers Login</h3>
          <hr>
          <p>Login with the userID and password provided by the department.</p>
          <hr>
-         <a href="admin/register.php" class="inline-btn tutor-login-btn">get started</a>
+         <a href="admin/register.php" class="inline-btn tutor-login-btn">Get Started</a>
       </div>
 
    </div>
@@ -201,7 +205,7 @@ $total_bookmarked = $select_bookmark->rowCount();
 
 <section class="courses">
 
-   <h1 class="heading">latest courses</h1>
+   <h1 class="heading">Latest Courses</h1>
 
    <div class="box-container">   
 
@@ -226,7 +230,7 @@ $total_bookmarked = $select_bookmark->rowCount();
          </div>
          <img src="uploaded_files/<?= $fetch_course['thumb']; ?>" class="thumb" alt="">
          <h3 class="title"><?= $fetch_course['title']; ?></h3>
-         <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">view playlist</a>
+         <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">View Playlist</a>
       </div>
       <?php
          }
@@ -238,7 +242,7 @@ $total_bookmarked = $select_bookmark->rowCount();
    </div>
 
    <div class="more-btn">
-      <a href="courses.php" class="inline-option-btn view-more-btn">view more</a>
+      <a href="courses.php" class="inline-option-btn view-more-btn">View More</a>
    </div>
 
 </section>

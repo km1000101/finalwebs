@@ -16,7 +16,14 @@ if(isset($message)){
 <style>
    /* Change color of icons on hover */
    .navbar a:hover i {
-      color:rgb(25, 42, 134); /* Custom color */
+      color:rgb(4, 113, 197); /* Custom color */
+   }
+   /* Change color of search icon to orange */
+   .icons .fa-search {
+      color: orange;
+   }
+   .search-form .fa-search {
+      color: orange;
    }
 </style>
 
@@ -117,11 +124,11 @@ if(isset($message)){
 
    <nav class="navbar">
       <!-- Navigation links -->
-      <a href="home.php" class="nav-btn home-btn"><i class="fas fa-home"></i><span>home</span></a>
-      <a href="about.php" class="nav-btn"><i class="fas fa-question"></i><span>about us</span></a>
-      <a href="courses.php" class="nav-btn"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-      <a href="teachers.php" class="nav-btn"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-      <a href="contact.php" class="nav-btn"><i class="fas fa-headset"></i><span>contact us</span></a>
+      <a href="home.php" class="nav-btn home-btn"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="about.php" class="nav-btn"><i class="fas fa-question"></i><span>About Us</span></a>
+      <a href="courses.php" class="nav-btn"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+      <a href="teachers.php" class="nav-btn"><i class="fas fa-chalkboard-user"></i><span>Teachers</span></a>
+      <a href="contact.php" class="nav-btn"><i class="fas fa-headset"></i><span>Contact Us</span></a>
    </nav>
 
 </div>
