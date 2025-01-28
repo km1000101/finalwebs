@@ -47,6 +47,14 @@ body{
    padding-left: 30rem;
 }
 
+body.dark{
+   --white:#222;
+   --black:#fff;
+   --light-color:#aaa;
+   --light-bg:#333;
+   --border:.1rem solid rgba(255,255,255,.2);
+}
+
 body.active{
    padding-left: 0;
 }
@@ -1349,7 +1357,7 @@ section{
 .form-container form p{
    padding-top: 1rem;
    font-size: 1.7rem;
-   color: var (--light-color);
+   color: var(--light-color);
 }
 
 .form-container form p span{
@@ -1596,7 +1604,7 @@ section{
 
 .mission ul li {
    font-size: 2rem;
-   color: var (--light-color);
+   color: var(--light-color);
    margin-bottom: .5rem;
 }
 
