@@ -40,7 +40,8 @@ $total_bookmarked = $select_bookmark->rowCount();
 
    <style>
       body {
-         background-color: #f0f0f0; /* Fallback color */
+         background-color: #121212; /* Dark background color */
+         color: #ffffff; /* Light text color */
       }
       .background-image {
          position: fixed;
@@ -68,7 +69,7 @@ $total_bookmarked = $select_bookmark->rowCount();
          opacity: 0;
          transform: translateY(50px);
          animation: fade-slide-up 1s forwards;
-         color: white; /* Change heading color to white */
+         color: #ffffff; /* Change heading color to white */
       }
       @keyframes fade-slide-up {
          to {
@@ -79,8 +80,8 @@ $total_bookmarked = $select_bookmark->rowCount();
       }
       .box {
          transition: transform 0.3s, box-shadow 0.3s;
-         background-color: rgba(63, 62, 62, 0.5) !important; /* Ensure the box is transparent */
-         color: white; /* Change box text color to white */
+         background-color: rgba(63, 62, 62, 0.8) !important; /* Ensure the box is more transparent */
+         color: #ffffff; /* Change box text color to white */
       }
       .box:hover {
          transform: translateY(-10px);

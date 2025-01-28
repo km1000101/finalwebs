@@ -6,12 +6,18 @@
    <title>Footer</title>
    <style>
       .social-links a {
-         color:orange; /* Assuming the navigation bar buttons are blue */
+         color: orange; /* Assuming the navigation bar buttons are blue */
          margin-right: 10px;
          font-size: 24px;
       }
       .social-links a:hover {
-         color:rgb(4, 113, 197); /* Darker blue on hover */
+         color: rgb(4, 113, 197); /* Darker blue on hover */
+      }
+      .footer {
+         background-color: #121212; /* Dark background color */
+         color: #ffffff; /* Light text color */
+         padding: 20px;
+         text-align: center;
       }
    </style>
 </head>
