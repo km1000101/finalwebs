@@ -15,9 +15,8 @@ if(isset($message)){
    .navbar a:hover i {
       color:rgb(4, 113, 197); /* Custom color */
    }
-   #toggle-btn {
-      display: none; /* Hide the moon icon */
-   }
+  
+  
    .search-form button {
       color: orange; /* Change search icon color to orange */
    }
@@ -39,7 +38,7 @@ if(isset($message)){
          <div id="menu-btn" class="fas fa-bars"></div>
          <div id="search-btn" class="fas fa-search"></div>
          <div id="user-btn" class="fas fa-user"></div>
-         <div id="toggle-btn" class="fas fa-sun"></div>
+         <div id="toggle-btn" class="fas fa-sun" style="display: none;"></div>
       </div>
 
       <div class="profile">
@@ -120,3 +119,12 @@ if(isset($message)){
 </div>
 
 <!-- side bar section ends -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   const toggleBtn = document.getElementById('toggle-btn');
+   if (toggleBtn) {
+      toggleBtn.style.display = 'none';
+   }
+});
+</script>

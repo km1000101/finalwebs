@@ -153,13 +153,13 @@ section{
 }
 
 .empty{
-   background-color: var(--white);
+   background-color: var (--white);
    border-radius: .5rem;
    padding: 1.5rem;
    text-align: center;
    width: 100%;
    font-size: 2rem;
-   color: var(--red);
+   color: var (--red);
 }
 
 .heading{
@@ -1598,4 +1598,36 @@ section{
    font-size: 2rem;
    color: var (--light-color);
    margin-bottom: .5rem;
+}
+
+.dark-mode {
+   background-color: #121212;
+   color: #ffffff;
+}
+
+.dark-mode .box {
+   background-color: rgba(255, 255, 255, 0.1) !important;
+   color: #ffffff;
+}
+
+.dark-mode .heading {
+   color: #ffffff;
+}
+
+#toggle-btn {
+   display: none;
+}
+
+body.dark-mode {
+   background-color: #121212;
+   color: #ffffff;
+}
+
+body.dark-mode .box {
+   background-color: rgba(255, 255, 255, 0.1) !important;
+   color: #ffffff;
+}
+
+body.dark-mode .heading {
+   color: #ffffff;
 }
