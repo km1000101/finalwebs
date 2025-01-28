@@ -1,6 +1,8 @@
 <?php
+// Check if there are any messages to display
 if(isset($message)){
    foreach($message as $message){
+      // Display each message in a div with a close button
       echo '
       <div class="message">
          <span>'.$message.'</span>
@@ -12,6 +14,7 @@ if(isset($message)){
 ?>
 
 <style>
+   /* Change color of icons on hover */
    .navbar a:hover i {
       color:rgb(25, 42, 134); /* Custom color */
    }
@@ -21,14 +24,16 @@ if(isset($message)){
 
    <section class="flex">
 
-      <a href="home.php" class="logo"><img src="images/LOGO.jpg">
-</a>
+      <!-- Logo linking to home page -->
+      <a href="home.php" class="logo"><img src="images/LOGO.jpg"></a>
 
+      <!-- Search form for courses -->
       <form action="search_course.php" method="post" class="search-form">
          <input type="text" name="search_course" placeholder="search courses..." required maxlength="100">
          <button type="submit" class="fas fa-search" name="search_course_btn"></button>
       </form>
 
+      <!-- Icons for menu, search, user, and toggle -->
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
          <div id="search-btn" class="fas fa-search"></div>
@@ -36,13 +41,16 @@ if(isset($message)){
          <div id="toggle-btn" class="fas fa-sun" style="display: none;"></div>
       </div>
 
+      <!-- User profile section -->
       <div class="profile">
          <?php
+            // Fetch user profile from database
             $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
             $select_profile->execute([$user_id]);
             if($select_profile->rowCount() > 0){
             $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
          ?>
+         <!-- Display user profile information -->
          <img src="uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
          <h3><?= $fetch_profile['name']; ?></h3>
          <span>student</span>
@@ -55,6 +63,7 @@ if(isset($message)){
          <?php
             }else{
          ?>
+         <!-- Prompt user to login or register if not logged in -->
          <h3>please login or register</h3>
           <div class="flex-btn">
             <a href="login.php" class="option-btn">login</a>
@@ -81,11 +90,13 @@ if(isset($message)){
 
    <div class="profile">
          <?php
+            // Fetch user profile from database
             $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
             $select_profile->execute([$user_id]);
             if($select_profile->rowCount() > 0){
             $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
          ?>
+         <!-- Display user profile information -->
          <img src="uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
          <h3><?= $fetch_profile['name']; ?></h3>
          <span>student</span>
@@ -93,6 +104,7 @@ if(isset($message)){
          <?php
             }else{
          ?>
+         <!-- Prompt user to login or register if not logged in -->
          <h3>please login or register</h3>
           <div class="flex-btn" style="padding-top: .5rem;">
             <a href="login.php" class="option-btn">login</a>
@@ -104,6 +116,7 @@ if(isset($message)){
       </div>
 
    <nav class="navbar">
+      <!-- Navigation links -->
       <a href="home.php" class="nav-btn home-btn"><i class="fas fa-home"></i><span>home</span></a>
       <a href="about.php" class="nav-btn"><i class="fas fa-question"></i><span>about us</span></a>
       <a href="courses.php" class="nav-btn"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
@@ -116,6 +129,7 @@ if(isset($message)){
 <!-- side bar section ends -->
 
 <script>
+// Hide toggle button on page load
 document.addEventListener('DOMContentLoaded', function() {
    const toggleBtn = document.getElementById('toggle-btn');
    if (toggleBtn) {

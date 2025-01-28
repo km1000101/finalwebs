@@ -1,15 +1,16 @@
 <?php
-
+// Include database connection file
 include 'components/connect.php';
 
+// Start session
 session_start();
 
+// Check if user_id is set in cookies
 if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
 }else{
    $user_id = '';
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -289,14 +290,19 @@ if(isset($_COOKIE['user_id'])){
 <!-- reviews section ends -->
 
 <script>
+// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+   // Get the user ID from PHP
    const userId = '<?= $user_id; ?>';
+   // Select all buttons that require user login
    const buttons = document.querySelectorAll('.inline-btn, .option-btn, .view-more-btn, .nav-btn, .category-btn, .topic-btn');
    const footer = document.querySelector('footer');
    let lastScrollTop = 0;
 
+   // Add click event listener to each button
    buttons.forEach(button => {
       button.addEventListener('click', function(event) {
+         // If user is not logged in and the button is not for tutor login or home, prevent default action and redirect to login page
          if (!userId && !button.classList.contains('tutor-login-btn') && !button.classList.contains('home-btn')) {
             event.preventDefault();
             alert('Please log in to continue.');
@@ -305,8 +311,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
    });
 
+   // Add scroll event listener to window
    window.addEventListener('scroll', function() {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      // Hide footer on scroll down, show footer on scroll up
       if (scrollTop > lastScrollTop) {
          footer.style.bottom = '-60px'; // Adjust according to footer height
       } else {
@@ -323,35 +331,36 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="js/script.js"></script>
 <script src="js/slideshow.js"></script>
 <script>
-   document.addEventListener('DOMContentLoaded', () => {
-      const runningNumbers = document.querySelectorAll('.running-number');
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+   const runningNumbers = document.querySelectorAll('.running-number');
 
-      const runNumbers = () => {
-         runningNumbers.forEach(number => {
-            const updateCount = () => {
-               const target = +number.getAttribute('data-target');
-               const count = +number.innerText;
-               const speed = 200; // Adjust the speed as needed
-               const increment = target / speed;
+   const runNumbers = () => {
+      runningNumbers.forEach(number => {
+         const updateCount = () => {
+            const target = +number.getAttribute('data-target');
+            const count = +number.innerText;
+            const speed = 200; // Adjust the speed as needed
+            const increment = target / speed;
 
-               if (count < target) {
-                  number.innerText = Math.ceil(count + increment);
-                  setTimeout(updateCount, 1);
-               } else {
-                  number.innerText = target;
-               }
-            };
-
-            const isVisible = number.getBoundingClientRect().top < window.innerHeight && number.getBoundingClientRect().bottom >= 0;
-            if (isVisible) {
-               updateCount();
+            if (count < target) {
+               number.innerText = Math.ceil(count + increment);
+               setTimeout(updateCount, 1);
+            } else {
+               number.innerText = target;
             }
-         });
-      };
+         };
 
-      window.addEventListener('scroll', runNumbers);
-      runNumbers();
-   });
+         const isVisible = number.getBoundingClientRect().top < window.innerHeight && number.getBoundingClientRect().bottom >= 0;
+         if (isVisible) {
+            updateCount();
+         }
+      });
+   };
+
+   window.addEventListener('scroll', runNumbers);
+   runNumbers();
+});
 </script>
    
 </div>

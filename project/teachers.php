@@ -1,15 +1,16 @@
 <?php
-
+// Include database connection file
 include 'components/connect.php';
 
+// Start session
 session_start();
 
+// Check if user_id is set in cookies
 if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
 }else{
    $user_id = '';
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -113,6 +114,7 @@ if(isset($_COOKIE['user_id'])){
       </div>
 
       <?php
+         // Fetch all tutors from the database
          $select_tutors = $conn->prepare("SELECT * FROM `tutors`");
          $select_tutors->execute();
          if($select_tutors->rowCount() > 0){
@@ -120,18 +122,22 @@ if(isset($_COOKIE['user_id'])){
 
                $tutor_id = $fetch_tutor['id'];
 
+               // Count the number of playlists created by the tutor
                $count_playlists = $conn->prepare("SELECT * FROM `playlist` WHERE tutor_id = ?");
                $count_playlists->execute([$tutor_id]);
                $total_playlists = $count_playlists->rowCount();
 
+               // Count the number of contents created by the tutor
                $count_contents = $conn->prepare("SELECT * FROM `content` WHERE tutor_id = ?");
                $count_contents->execute([$tutor_id]);
                $total_contents = $count_contents->rowCount();
 
+               // Count the number of likes received by the tutor
                $count_likes = $conn->prepare("SELECT * FROM `likes` WHERE tutor_id = ?");
                $count_likes->execute([$tutor_id]);
                $total_likes = $count_likes->rowCount();
 
+               // Count the number of comments received by the tutor
                $count_comments = $conn->prepare("SELECT * FROM `comments` WHERE tutor_id = ?");
                $count_comments->execute([$tutor_id]);
                $total_comments = $count_comments->rowCount();

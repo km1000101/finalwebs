@@ -1,15 +1,19 @@
 <?php
 
+// Include database connection file
 include 'components/connect.php';
 
+// Start session
 session_start();
 
+// Check if user_id is set in cookies
 if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
 }else{
    $user_id = '';
 }
 
+// Handle contact form submission
 if(isset($_POST['submit'])){
 
    $name = $_POST['name']; 
@@ -21,12 +25,14 @@ if(isset($_POST['submit'])){
    $msg = $_POST['msg']; 
    $msg = filter_var($msg, FILTER_SANITIZE_STRING);
 
+   // Check if the message already exists in the database
    $select_contact = $conn->prepare("SELECT * FROM `contact` WHERE name = ? AND email = ? AND number = ? AND message = ?");
    $select_contact->execute([$name, $email, $number, $msg]);
 
    if($select_contact->rowCount() > 0){
       $message[] = 'message sent already!';
    }else{
+      // Insert contact message into database
       $insert_message = $conn->prepare("INSERT INTO `contact`(name, email, number, message) VALUES(?,?,?,?)");
       $insert_message->execute([$name, $email, $number, $msg]);
       $message[] = 'message sent successfully!';
@@ -129,6 +135,7 @@ if(isset($_POST['submit'])){
          <img src="images/hod.jpg" alt="">
       </div>
 
+      <!-- Contact form -->
       <form action="" method="post">
          <h3>get in touch</h3>
          <input type="text" placeholder="enter your name" required maxlength="100" name="name" class="box">

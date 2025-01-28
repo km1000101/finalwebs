@@ -1,15 +1,16 @@
 <?php
-
+// Include database connection file
 include 'components/connect.php';
 
+// Start session
 session_start();
 
+// Check if user_id is set in cookies
 if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
 }else{
    $user_id = '';
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -102,6 +103,7 @@ if(isset($_COOKIE['user_id'])){
    <div class="box-container">
 
       <?php
+         // Fetch all active courses from database
          $select_courses = $conn->prepare("SELECT * FROM `playlist` WHERE status = ? ORDER BY date DESC");
          $select_courses->execute(['active']);
          if($select_courses->rowCount() > 0){

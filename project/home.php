@@ -1,23 +1,29 @@
 <?php
 
+// Include database connection file
 include 'components/connect.php';
 
+// Start session
 session_start();
 
+// Check if user_id is set in cookies
 if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
 }else{
    $user_id = '';
 }
 
+// Fetch total likes for the user
 $select_likes = $conn->prepare("SELECT * FROM `likes` WHERE user_id = ?");
 $select_likes->execute([$user_id]);
 $total_likes = $select_likes->rowCount();
 
+// Fetch total comments for the user
 $select_comments = $conn->prepare("SELECT * FROM `comments` WHERE user_id = ?");
 $select_comments->execute([$user_id]);
 $total_comments = $select_comments->rowCount();
 
+// Fetch total bookmarks for the user
 $select_bookmark = $conn->prepare("SELECT * FROM `bookmark` WHERE user_id = ?");
 $select_bookmark->execute([$user_id]);
 $total_bookmarked = $select_bookmark->rowCount();
@@ -39,6 +45,7 @@ $total_bookmarked = $select_bookmark->rowCount();
    <link rel="stylesheet" href="css/style.css">
 
    <style>
+      /* Custom styles for dark mode and animations */
       body {
          background-color: #121212; /* Dark background color */
          color: #ffffff; /* Light text color */
@@ -124,6 +131,7 @@ $total_bookmarked = $select_bookmark->rowCount();
    <div class="box-container">
 
       <?php
+         // Check if user is logged in
          if($user_id != ''){
       ?>
       <div class="box">
