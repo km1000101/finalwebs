@@ -38,7 +38,9 @@ if(isset($message)){
       <form action="search_course.php" method="post" class="search-form">
          <input type="text" name="search_course" placeholder="search courses..." required maxlength="100">
          <button type="submit" class="fas fa-search" name="search_course_btn"></button>
+
       </form>
+      <a href="home.php" class="logo"><img src="images/club.jpg"></a>
 
       <!-- Icons for menu, search, user, and toggle -->
       <div class="icons">
