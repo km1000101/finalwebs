@@ -1,6 +1,6 @@
 # 🎓 Computer Science and Artificial Intelligence Department Website
 
-Welcome to the **Computer Science and Artificial Intelligence Department** website project! This repository hosts the source code for the official department website of [Your College Name](https://www.yourcollegelink.edu).
+Welcome to the **Computer Science and Artificial Intelligence Department** website project! This repository hosts the source code for the official department website of Maharaja Institute of Technology.
 
 ![Website Preview](https://your-image-link.com/website-preview.png)
 
