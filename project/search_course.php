@@ -37,7 +37,10 @@ if(isset($_POST['search_course_btn'])){
 
    <style>
       body {
-         background-color: #f0f0f0; /* Fallback color */
+         display: flex;
+         flex-direction: column;
+         min-height: 100vh;
+         background-color:rgb(45, 44, 44); /* Fallback color */
       }
       .background-image {
          position: fixed;
@@ -52,6 +55,7 @@ if(isset($_POST['search_course_btn'])){
          z-index: -1;
       }
       .content {
+         flex: 1;
          position: relative;
          z-index: 1;
       }
@@ -90,7 +94,12 @@ if(isset($_POST['search_course_btn'])){
          font-size: 4rem; /* Reduced font size */
       }
       footer {
-         transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
+         background-color: #333;
+         color: white;
+         text-align: center;
+         padding: 10px 0;
+         z-index: 1000;
+         margin-top: auto; /* Ensure footer is at the bottom */
       }
    </style>
 
@@ -134,7 +143,7 @@ if(isset($_POST['search_course_btn'])){
       <?php
          }
       }else{
-         echo '<p class="empty">no courses found!</p>';
+         echo '<p class="empty" style="color: white;">no courses found!</p>';
       }
       ?>
 
@@ -148,8 +157,6 @@ if(isset($_POST['search_course_btn'])){
 document.addEventListener('DOMContentLoaded', function() {
    const userId = '<?= $user_id; ?>';
    const buttons = document.querySelectorAll('.inline-btn, .option-btn, .view-more-btn, .nav-btn, .category-btn, .topic-btn');
-   const footer = document.querySelector('footer');
-   let lastScrollTop = 0;
 
    buttons.forEach(button => {
       button.addEventListener('click', function(event) {
@@ -159,16 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'login.php';
          }
       });
-   });
-
-   window.addEventListener('scroll', function() {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) {
-         footer.style.bottom = '-60px'; // Adjust according to footer height
-      } else {
-         footer.style.bottom = '0';
-      }
-      lastScrollTop = scrollTop;
    });
 });
 </script>

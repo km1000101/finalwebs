@@ -24,6 +24,24 @@ if(isset($_COOKIE['user_id'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
+   <style>
+      body {
+         background-image: url('images/bg_img2.jpg');
+         background-size: cover;
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         display: flex;
+         flex-direction: column;
+         min-height: 100vh;
+      }
+      .teachers {
+         flex: 1;
+      }
+      footer {
+         margin-top: auto;
+      }
+   </style>
+
 </head>
 <body>
 

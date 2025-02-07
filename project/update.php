@@ -106,6 +106,24 @@ if(isset($_POST['submit'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
+   <style>
+      body {
+         background-image: url('images/bg_img2.jpg');
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+      }
+      .form-container {
+         background: rgba(255, 255, 255, 0);
+         padding: 20px;
+         border-radius: 10px;
+      }
+      footer {
+         transition: transform .5s ease;
+      }
+   </style>
+
 </head>
 <body>
 
@@ -156,6 +174,19 @@ if(isset($_POST['submit'])){
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
+<script>
+   let lastScrollTop = 0;
+   window.addEventListener('scroll', function() {
+      let footer = document.querySelector('footer');
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+         footer.style.transform = 'translateY(50%)';
+      } else {
+         footer.style.transform = 'translateY(0)';
+      }
+      lastScrollTop = scrollTop;
+   });
+</script>
    
 </body>
 </html>

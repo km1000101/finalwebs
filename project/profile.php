@@ -37,6 +37,52 @@ $total_bookmarked = $select_bookmark->rowCount();
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
+   <style>
+      body {
+         background: url('images/bg_img2.jpg') no-repeat;
+         background-size: cover;
+         display: flex;
+         flex-direction: column;
+         min-height: 100vh;
+         overflow-y: scroll; /* Enable vertical scrolling */
+         transition: background 0.5s ease-in-out; /* Smooth transition for background */
+      }
+      .footer {
+         margin-top: auto;
+         position: fixed;
+         bottom: 0;
+         width: 100%;
+         background: rgb(43, 39, 39);
+         color: #fff;
+         text-align: center;
+         padding: 10px 0;
+         transition: bottom 0.3s ease-in-out, background 0.5s ease-in-out; /* Smoother transition for footer */
+      }
+      .footer.scrolled {
+         bottom: -20px; /* Move the footer down a bit when scrolling */
+      }
+      .details {
+         background: rgba(255, 255, 255, 0.8); /* Make the box transparent */
+         padding: 20px;
+         border-radius: 10px;
+         transition: background 0.5s ease-in-out; /* Smooth transition for background */
+      }
+      .user img {
+         position: relative;
+         transition: transform 0.3s ease-in-out; /* Smooth transition for image */
+      }
+      .user img:hover {
+         transform: scale(1.1); /* Scale up the image on hover */
+      }
+      .box {
+         transition: transform 0.3s ease-in-out, background 0.5s ease-in-out; /* Smooth transition for box */
+      }
+      .box:hover {
+         transform: translateY(-10px); /* Move the box up on hover */
+         background: rgba(255, 255, 255, 0.9); /* Slightly change background on hover */
+      }
+   </style>
+
 </head>
 <body>
 
@@ -98,22 +144,59 @@ $total_bookmarked = $select_bookmark->rowCount();
 
 <!-- profile section ends -->
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- footer section starts  -->
 
 <footer class="footer">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Footer</title>
+   <style>
+      .social-links a {
+         color: orange; /* Assuming the navigation bar buttons are blue */
+         margin-right: 10px;
+         font-size: 24px;
+      }
+      .social-links a:hover {
+         color: rgb(4, 113, 197); /* Darker blue on hover */
+      }
+      .footer {
+         background-color:rgba(33, 31, 31, 1); /* Make the footer less transparent */
+         color: #ffffff; /* Light text color */
+         padding: 25px;
+         text-align: center;
+         transition: bottom .7s ease-in-out; /* Smoother transition for footer */
 
-   &copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!
+      }
+   </style>
+</head>
+<body>
+
+   <footer class="footer">
+
+      &copy; copyright @ <?= date('Y'); ?> by <span>Department of CS-AI</span> | all rights reserved!
+      
+      <div class="social-links" style="margin-top: 10px;">
+         <a href="https://github.com/your-profile" target="_blank">
+            <i class="fab fa-github"></i>
+         </a>
+         <a href="https://linkedin.com/in/your-profile" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+         </a>
+         <a href="https://youtube.com/your-channel" target="_blank">
+            <i class="fab fa-youtube"></i>
+         </a>
+         <a href="https://twitter.com/your-profile" target="_blank">
+            <i class="fab fa-twitter"></i>
+         </a>
+      </div>
+
+   </footer>
+
+</body>
+</html>
 
 </footer>
 
@@ -121,6 +204,16 @@ $total_bookmarked = $select_bookmark->rowCount();
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
+<script>
+   window.addEventListener('scroll', function() {
+      const footer = document.querySelector('.footer');
+      if (window.scrollY > 0) {
+         footer.classList.add('scrolled');
+      } else {
+         footer.classList.remove('scrolled');
+      }
+   });
+</script>
    
 </body>
 </html>
