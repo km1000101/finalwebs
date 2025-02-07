@@ -51,15 +51,17 @@ if(isset($_POST['remove'])){
       }
       .background-image {
          position: fixed;
-         top: 60px; /* Adjust according to header height */
-         bottom: 60px; /* Adjust according to footer height */
+         top: 0; /* Changed from 60px */
+         bottom: 0; /* Changed from 60px */
          left: 0;
          right: 0;
-         background-image: url('images/bg_img2.jpg'); /* Add background image */
-         background-size: auto;
+         background-image: url('images/bg_img2.jpg');
+         background-size: cover; /* Changed from auto */
          background-position: center;
          background-repeat: no-repeat;
          z-index: -1;
+         width: 100%;
+         height: 100vh; /* Added full viewport height */
       }
       .content {
          position: relative;
@@ -100,7 +102,12 @@ if(isset($_POST['remove'])){
          font-size: 4rem; /* Reduced font size */
       }
       footer {
-         transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
+         position: fixed;
+         left: 0; /* Add this line */
+         bottom: 0;
+         width: 100%;
+         background-color: #fff; /* Ensure footer has a background color */
+         z-index: 1000; /* Ensure footer is above other content */
       }
    </style>
 
@@ -116,7 +123,7 @@ if(isset($_POST['remove'])){
 
 <section class="liked-videos">
 
-   <h1 class="heading">liked videos</h1>
+   <h1 class="heading">Liked Videos</h1>
 
    <div class="box-container">
 
@@ -173,8 +180,6 @@ if(isset($_POST['remove'])){
 document.addEventListener('DOMContentLoaded', function() {
    const userId = '<?= $user_id; ?>';
    const buttons = document.querySelectorAll('.inline-btn, .option-btn, .view-more-btn, .nav-btn, .category-btn, .topic-btn');
-   const footer = document.querySelector('footer');
-   let lastScrollTop = 0;
 
    buttons.forEach(button => {
       button.addEventListener('click', function(event) {
@@ -184,16 +189,6 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'login.php';
          }
       });
-   });
-
-   window.addEventListener('scroll', function() {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) {
-         footer.style.bottom = '-60px'; // Adjust according to footer height
-      } else {
-         footer.style.bottom = '0';
-      }
-      lastScrollTop = scrollTop;
    });
 });
 </script>

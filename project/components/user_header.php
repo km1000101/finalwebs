@@ -32,7 +32,7 @@ if(isset($message)){
    <section class="flex">
 
       <!-- Logo linking to home page -->
-      <a href="home.php" class="logo"><img src="images/LOGO.jpg"></a>
+      <a href="home.php" class="logo"><img src="images/logo.png"></a>
 
       <!-- Search form for courses -->
       <form action="search_course.php" method="post" class="search-form">

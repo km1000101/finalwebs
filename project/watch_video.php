@@ -183,6 +183,9 @@ if(isset($_POST['update_now'])){
          transition: transform 0.3s, box-shadow 0.3s;
          background-color: rgba(63, 62, 62, 0.5)!important; /* Ensure the box is transparent */
       }
+      textarea.box {
+         background-color: rgba(255, 255, 255, 0.5); /* Make the comment box transparent */
+      }
       .box:hover {
          transform: translateY(-10px);
          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);

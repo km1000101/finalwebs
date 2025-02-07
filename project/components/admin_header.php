@@ -32,7 +32,7 @@ $fetch_tutor = $select_tutor->fetch(PDO::FETCH_ASSOC);
    <section class="flex">
 
       <!-- Logo linking to dashboard -->
-      <a href="dashboard.php" class="logo"><img src="../images/LOGO.jpg">.</a>
+      <a href="dashboard.php" class="logo"><img src="../images/logo.png">.</a>
 
       <!-- Search form -->
       <form action="search_page.php" method="post" class="search-form">

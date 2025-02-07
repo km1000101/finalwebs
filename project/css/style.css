@@ -441,7 +441,7 @@ section{
 }
 
 .quick-select .box-container .box .flex a:hover span{
-   color: var(--white)  ;
+   color: var (--white)  ;
 }
 
 .courses .box-container{
@@ -1466,7 +1466,7 @@ section{
    font-size: 2rem;
    margin-top: 1.5rem;
    z-index: 1000;
-   /* padding-bottom: 9.5rem; */
+   width: 100%;
 }
 
 .footer span{
@@ -1604,7 +1604,7 @@ section{
 
 .mission ul li {
    font-size: 2rem;
-   color: var(--light-color);
+   color: var (--light-color);
    margin-bottom: .5rem;
 }
 

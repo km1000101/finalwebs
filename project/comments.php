@@ -63,8 +63,21 @@ if(isset($_POST['update_now'])){
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
 
+   <style>
+      /* Add this style block */
+      .footer {
+         position: fixed;
+         bottom: 0;
+         width: 100%;
+         background-color: #333;
+         color: white;
+         text-align: center;
+         padding: 10px 0;
+      }
+   </style>
+
 </head>
-<body>
+<body style="background-image: url('images/bg_img2.jpg');">
 
 <?php include 'components/user_header.php'; ?>
 
@@ -137,16 +150,10 @@ if(isset($_POST['update_now'])){
 
 <!-- comments section ends -->
 
-
-
-
-
-
-
-
-
-
-<?php include 'components/footer.php'; ?>
+<!-- Add the footer class to the footer include -->
+<div class="footer">
+   <?php include 'components/footer.php'; ?>
+</div>
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
