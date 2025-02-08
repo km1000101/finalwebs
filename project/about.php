@@ -182,7 +182,8 @@ if(isset($_COOKIE['user_id'])){
    <div class="box-container">
 
       <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p>"Great hands-on labs and projects that really prepare you for real-world scenarios.
+             We get to work on cutting-edge technology and tools, which gives us a competitive edge when applying for jobs."</p>
          <div class="user">
             <img src="images/pic-2.jpg" alt="">
             <div>
@@ -199,7 +200,8 @@ if(isset($_COOKIE['user_id'])){
       </div>
 
       <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p>"I appreciate the supportive and collaborative environment among students and faculty.
+             It's easy to reach out for help, and everyone is willing to share their knowledge and experiences."</p>
          <div class="user">
             <img src="images/pic-3.jpg" alt="">
             <div>
@@ -216,7 +218,8 @@ if(isset($_COOKIE['user_id'])){
       </div>
 
       <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p> "The department has a strong focus on both theoretical knowledge and practical skills.
+             The balance between the two ensures that we are well-rounded professionals who can tackle any challenge.</p>
          <div class="user">
             <img src="images/pic-4.jpg" alt="">
             <div>
@@ -233,7 +236,8 @@ if(isset($_COOKIE['user_id'])){
       </div>
 
       <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p>"The department organizes regular workshops and guest lectures from industry experts.
+             These events provide invaluable insights into the latest developments and trends in computer science and AI."</p>
          <div class="user">
             <img src="images/pic-5.jpg" alt="">
             <div>
@@ -250,7 +254,8 @@ if(isset($_COOKIE['user_id'])){
       </div>
 
       <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p>"The library and online resources are fantastic for research and study. 
+            I have access to a vast collection of books, journals, and databases that support my learning and academic growth."</p>
          <div class="user">
             <img src="images/pic-6.jpg" alt="">
             <div>
@@ -267,7 +272,8 @@ if(isset($_COOKIE['user_id'])){
       </div>
 
       <div class="box">
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo fugiat, quaerat voluptate odio consectetur assumenda fugit maxime unde at ex?</p>
+         <p>"The curriculum is up-to-date with the latest industry trends, especially in AI and machine learning.
+             I appreciate that we're learning the skills that employers are looking for, making us job-ready."</p>
          <div class="user">
             <img src="images/pic-7.jpg" alt="">
             <div>
