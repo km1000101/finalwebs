@@ -26,6 +26,7 @@ document.querySelector('.side-bar .close-side-bar').onclick = () =>{
    body.classList.remove('active');
 }
 
+
 window.onscroll = () =>{
    profile.classList.remove('active');
    searchForm.classList.remove('active');
