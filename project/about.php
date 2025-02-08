@@ -331,36 +331,47 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="js/script.js"></script>
 <script src="js/slideshow.js"></script>
 <script>
-// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-   const runningNumbers = document.querySelectorAll('.running-number');
+    const runningNumbers = document.querySelectorAll('.running-number');
 
-   const runNumbers = () => {
-      runningNumbers.forEach(number => {
-         const updateCount = () => {
-            const target = +number.getAttribute('data-target');
-            const count = +number.innerText;
-            const speed = 200; // Adjust the speed as needed
-            const increment = target / speed;
+    const runNumbers = (number) => {
+        const target = +number.getAttribute('data-target');
+        const speed = 200; // Adjust the speed for smoother animation
+        let count = 0;
+        let increment = Math.ceil(target / speed);
 
+        const updateCount = () => {
+            count += increment;
             if (count < target) {
-               number.innerText = Math.ceil(count + increment);
-               setTimeout(updateCount, 1);
+                number.innerText = count;
+                requestAnimationFrame(updateCount);
             } else {
-               number.innerText = target;
+                number.innerText = target; // Ensure final value is exact
             }
-         };
+        };
 
-         const isVisible = number.getBoundingClientRect().top < window.innerHeight && number.getBoundingClientRect().bottom >= 0;
-         if (isVisible) {
-            updateCount();
-         }
-      });
-   };
+        updateCount();
+    };
 
-   window.addEventListener('scroll', runNumbers);
-   runNumbers();
+    const handleScroll = () => {
+        runningNumbers.forEach(number => {
+            const rect = number.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+            if (isVisible && !number.dataset.animated) {
+                number.dataset.animated = "true"; // Mark as animated
+                number.innerText = "0"; // Reset number
+                runNumbers(number);
+            } else if (!isVisible) {
+                number.dataset.animated = ""; // Reset animation trigger when out of view
+            }
+        });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run once on page load
 });
+
 </script>
    
 </div>
