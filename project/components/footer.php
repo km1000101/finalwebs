@@ -30,13 +30,13 @@
       &copy; copyright @ <?= date('Y'); ?> by <span>Department of CS-AI</span> | all rights reserved!
       
       <div class="social-links" style="margin-top: 10px;">
-         <a href="https://github.com/your-profile" target="_blank">
+         <a href="https://github.com/Victor-Ikechukwu" target="_blank">
             <i class="fab fa-github"></i>
          </a>
-         <a href="https://linkedin.com/in/your-profile" target="_blank">
+         <a href="https://www.linkedin.com/in/victor-ikechukwu-agughasi/" target="_blank">
             <i class="fab fa-linkedin-in"></i>
          </a>
-         <a href="https://youtube.com/your-channel" target="_blank">
+         <a href="https://www.youtube.com/@VictorsPortal" target="_blank">
             <i class="fab fa-youtube"></i>
          </a>
          <a href="https://twitter.com/your-profile" target="_blank">

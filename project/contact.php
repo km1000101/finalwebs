@@ -155,15 +155,15 @@ if(isset($_POST['submit'])){
       <div class="box">
          <i class="fas fa-phone"></i>
          <h3>Phone Number</h3>
-         <a href="tel:1234567890">123-456-7890</a>
+         <a href="tel:7892819690">7892819690</a>
          <a href="tel:1112223333">111-222-3333</a>
       </div>
 
       <div class="box">
          <i class="fas fa-envelope"></i>
          <h3>Email Address</h3>
-         <a href="mailto:shaikhanas@gmail.com">shaikhanas@gmail.come</a>
-         <a href="mailto:anasbhai@gmail.com">anasbhai@gmail.come</a>
+         <a href="mailto:victora@mitmysore.in">victora@mitmysore.in</a>
+         <a href="mailto:victor.agughasi@gmail.com">victor.agughasi@gmail.com</a>
       </div>
 
       <div class="box">

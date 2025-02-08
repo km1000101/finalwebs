@@ -46,26 +46,26 @@ if(isset($_POST['tutor_fetch'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>tutor's profile</title>
+   <title>Tutor's Profile</title>
 
-   <!-- font awesome cdn link  -->
+   <!-- Font Awesome Cdn Link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
-   <!-- custom css file link  -->
+   <!-- Custom Css File Link  -->
    <link rel="stylesheet" href="css/style.css">
 
    <style>
       body {
-         background-color: #f0f0f0; /* Fallback color */
+         background-color: #f0f0f0; /* Fallback Color */
       }
       .background-image {
          position: fixed;
-         top: 60px; /* Adjust according to header height */
-         bottom: 60px; /* Adjust according to footer height */
+         top: 0; /* Adjust To Fit The Whole Screen */
+         bottom: 0; /* Adjust To Fit The Whole Screen */
          left: 0;
          right: 0;
-         background-image: url('images/bg_img2.jpg'); /* Add background image */
-         background-size: auto;
+         background-image: url('images/bg_img2.jpg'); /* Add Background Image */
+         background-size: cover; /* Ensure The Image Covers The Whole Screen */
          background-position: center;
          background-repeat: no-repeat;
          z-index: -1;
@@ -75,15 +75,16 @@ if(isset($_POST['tutor_fetch'])){
          z-index: 1;
       }
       .box a:hover i {
-         color: #1E90FF; /* Custom color */
+         color: #1E90FF; /* Custom Color */
       }
       .heading span {
-         color: orange; /* Change intelligence text color to orange */
+         color: orange; /* Change Intelligence Text Color To Orange */
       }
       .heading {
          opacity: 0;
          transform: translateY(50px);
          animation: fade-slide-up 1s forwards;
+         font-size: 4rem; /* Reduced Font Size */
       }
       @keyframes fade-slide-up {
          to {
@@ -93,7 +94,7 @@ if(isset($_POST['tutor_fetch'])){
       }
       .box {
          transition: transform 0.3s, box-shadow 0.3s;
-         background-color: rgba(63, 62, 62, 0.5)!important; /* Ensure the box is transparent */
+         background-color: rgba(255, 255, 255, 0.8)!important; /* Change To Light Color */
       }
       .box:hover {
          transform: translateY(-10px);
@@ -106,10 +107,22 @@ if(isset($_POST['tutor_fetch'])){
          transform: scale(1.05);
       }
       .courses .heading {
-         font-size: 4rem; /* Reduced font size */
+         font-size: 4rem; /* Reduced Font Size */
       }
       footer {
-         transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
+         transition: bottom 0.5s ease-in-out; /* Smoother Transition For Footer */
+      }
+      .empty {
+         color: white; /* Change Text Color To White */
+      }
+    
+      .details {
+         background-color: rgba(255, 255, 255, 0.12)!important; /* Make The Whole Box Transparent */
+      }
+      .details .flex p {
+         background-color: rgba(43, 40, 40, 0.99)!important; /* Ensure No Transparency */
+         padding: 10px;
+         border-radius: 5px;
       }
    </style>
 
@@ -121,11 +134,11 @@ if(isset($_POST['tutor_fetch'])){
 <div class="content">
 <?php include 'components/user_header.php'; ?>
 
-<!-- teachers profile section starts  -->
+<!-- Teachers Profile Section Starts  -->
 
 <section class="tutor-profile">
 
-   <h1 class="heading">profile details</h1>
+   <h1 class="heading">Profile Details</h1>
 
    <div class="details">
       <div class="tutor">
@@ -134,20 +147,20 @@ if(isset($_POST['tutor_fetch'])){
          <span><?= $fetch_tutor['profession']; ?></span>
       </div>
       <div class="flex">
-         <p>total playlists : <span><?= $total_playlists; ?></span></p>
-         <p>total videos : <span><?= $total_contents; ?></span></p>
-         <p>total likes : <span><?= $total_likes; ?></span></p>
-         <p>total comments : <span><?= $total_comments; ?></span></p>
+         <p>Total Playlists : <span><?= $total_playlists; ?></span></p>
+         <p>Total Videos : <span><?= $total_contents; ?></span></p>
+         <p>Total Likes : <span><?= $total_likes; ?></span></p>
+         <p>Total Comments : <span><?= $total_comments; ?></span></p>
       </div>
    </div>
 
 </section>
 
-<!-- teachers profile section ends -->
+<!-- Teachers Profile Section Ends -->
 
 <section class="courses">
 
-   <h1 class="heading">latest courese</h1>
+   <h1 class="heading">Latest Courses</h1>
 
    <div class="box-container">
 
@@ -172,12 +185,12 @@ if(isset($_POST['tutor_fetch'])){
          </div>
          <img src="uploaded_files/<?= $fetch_course['thumb']; ?>" class="thumb" alt="">
          <h3 class="title"><?= $fetch_course['title']; ?></h3>
-         <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">view playlist</a>
+         <a href="playlist.php?get_id=<?= $course_id; ?>" class="inline-btn">View Playlist</a>
       </div>
       <?php
          }
       }else{
-         echo '<p class="empty">no courses added yet!</p>';
+         echo '<p class="empty">No Courses Added Yet!</p>';
       }
       ?>
 
@@ -185,7 +198,7 @@ if(isset($_POST['tutor_fetch'])){
 
 </section>
 
-<!-- courses section ends -->
+<!-- Courses Section Ends -->
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -198,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
       button.addEventListener('click', function(event) {
          if (!userId && !button.classList.contains('tutor-login-btn') && !button.classList.contains('home-btn')) {
             event.preventDefault();
-            alert('Please log in to continue.');
+            alert('Please Log In To Continue.');
             window.location.href = 'login.php';
          }
       });
@@ -207,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
    window.addEventListener('scroll', function() {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > lastScrollTop) {
-         footer.style.bottom = '-60px'; // Adjust according to footer height
+         footer.style.bottom = '-60px'; // Adjust According To Footer Height
       } else {
          footer.style.bottom = '0';
       }
@@ -216,11 +229,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- footer section starts  -->
+<!-- Footer Section Starts  -->
 <?php include 'components/footer.php'; ?>
-<!-- footer section ends -->
+<!-- Footer Section Ends -->
 
-<!-- custom js file link  -->
+<!-- Custom Js File Link  -->
 <script src="js/script.js"></script>
 </div>
 </body>
