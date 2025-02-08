@@ -88,6 +88,12 @@ if(isset($_COOKIE['user_id'])){
       footer {
          transition: bottom 0.5s ease-in-out; /* Smoother transition for footer */
       }
+      .mission {
+         color: white; /* Change text color to white */
+      }
+      .mission .highlight {
+         color: orange; /* Change highlighted text color to orange */
+      }
    </style>
 
 </head>
@@ -119,7 +125,7 @@ if(isset($_COOKIE['user_id'])){
       <div class="content">
          <h3>why choose us?</h3>
          <div class="mission">
-            <p style="font-size: 3rem;">The vision of the Department of CSE (AI) is to:</p>
+            <p style="font-size: 3rem;">The <span class="highlight">vision</span> of the Department of CSE (AI) is to:</p>
             <ul>
                <li>Provide students with a strong foundation in AI fundamentals, equipping them with the knowledge and skills to thrive in the field.</li>
                <li>Foster a collaborative learning environment that encourages innovation and critical thinking.</li>
