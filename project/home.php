@@ -164,7 +164,7 @@ $total_bookmarked = $select_bookmark->rowCount();
       <div class="box">
          <h3 class="title">Top Categories</h3>
          <div class="flex">
-            <a href="search_course.php?" class="category-btn"><i class="fas fa-code"></i><span>Development</span></a>
+            <a href="#" class="category-btn"><i class="fas fa-code"></i><span>Development</span></a>
             <a href="#" class="category-btn"><i class="fas fa-chart-simple"></i><span>Business</span></a>
             <a href="#" class="category-btn"><i class="fas fa-pen"></i><span>Design</span></a>
             <a href="#" class="category-btn"><i class="fas fa-chart-line"></i><span>Marketing</span></a>

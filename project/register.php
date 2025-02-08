@@ -139,13 +139,13 @@ if(isset($_POST['submit'])){
             <p>Your Name <span>*</span></p>
             <input type="text" name="name" placeholder="Enter your name" maxlength="50" required class="box">
             <p>Your Email <span>*</span></p>
-            <input type="email" name="email" placeholder="Enter your email" maxlength="20" required class="box">
+            <input type="email" name="email" placeholder="Enter your email" maxlength="50" required class="box">
          </div>
          <div class="col">
             <p>Your Password <span>*</span></p>
-            <input type="password" name="pass" placeholder="Enter your password" maxlength="20" required class="box">
+            <input type="password" name="pass" placeholder="Enter your password" maxlength="50" required class="box">
             <p>Confirm Password <span>*</span></p>
-            <input type="password" name="cpass" placeholder="Confirm your password" maxlength="20" required class="box">
+            <input type="password" name="cpass" placeholder="Confirm your password" maxlength="50" required class="box">
          </div>
       </div>
       <p>Select Pic <span>*</span></p>
