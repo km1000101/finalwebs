@@ -131,28 +131,21 @@ if(isset($_POST['submit'])){
             <p>your profession </p>
             <select name="profession" class="box">
                <option value="" selected><?= $fetch_profile['profession']; ?></option>
-               <option value="developer">developer</option>
-               <option value="desginer">desginer</option>
-               <option value="musician">musician</option>
-               <option value="biologist">biologist</option>
-               <option value="teacher">teacher</option>
-               <option value="engineer">engineer</option>
-               <option value="lawyer">lawyer</option>
-               <option value="accountant">accountant</option>
-               <option value="doctor">doctor</option>
-               <option value="journalist">journalist</option>
-               <option value="photographer">photographer</option>
+               <option value="HOD">HOD</option>
+               <option value="Professor">Professor</option>
+               <option value="Assit.Professor">Assit.Professor</option>
+
             </select>
             <p>your email </p>
             <input type="email" name="email" placeholder="<?= $fetch_profile['email']; ?>" maxlength="20"  class="box">
          </div>
          <div class="col">
             <p>old password :</p>
-            <input type="password" name="old_pass" placeholder="enter your old password" maxlength="20"  class="box">
+            <input type="password" name="old_pass" placeholder="enter your old password" maxlength="50"  class="box">
             <p>new password :</p>
-            <input type="password" name="new_pass" placeholder="enter your new password" maxlength="20"  class="box">
+            <input type="password" name="new_pass" placeholder="enter your new password" maxlength="50"  class="box">
             <p>confirm password :</p>
-            <input type="password" name="cpass" placeholder="confirm your new password" maxlength="20"  class="box">
+            <input type="password" name="cpass" placeholder="confirm your new password" maxlength="50"  class="box">
          </div>
       </div>
       <p>update pic :</p>

@@ -30,14 +30,35 @@ if(isset($_POST['submit'])){
    $image_tmp_name = $_FILES['image']['tmp_name'];
    $image_folder = '../uploaded_files/'.$rename;
 
-   $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE email = ?");
-   $select_tutor->execute([$email]);
-   
-   if($select_tutor->rowCount() > 0){
-      $message[] = 'email already taken!';
-   }else{
-      if($pass != $cpass){
-         $message[] = 'confirm passowrd not matched!';
+   // Define multiple restricted email and password combinations
+   $restricted_users = [
+      ['email' => 'hemanth@gmail.com', 'password' => sha1('caits001')],
+      ['email' => 'victor@gmail.com', 'password' => sha1('caits002')],
+      ['email' => 'navya@gmail.com', 'password' => sha1('caits003')],
+      ['email' => 'vinayashree@gmail.com', 'password' => sha1('caits004')],
+      ['email' => 'shashank@gmail.com', 'password' => sha1('caits005')],
+      ['email' => 'charlie@gmail.com', 'password' => sha1('caits006')],
+      ['email' => 'david@gmail.com', 'password' => sha1('caits007')],
+      ['email' => 'eve@gmail.com', 'password' => sha1('caits008')],
+      ['email' => 'frank@gmail.com', 'password' => sha1('caits009')],
+      ['email' => 'grace@gmail.com', 'password' => sha1('caits010')]
+   ];
+
+   $is_valid_user = false;
+
+   foreach ($restricted_users as $user) {
+      if ($email === $user['email'] && $pass === $user['password']) {
+         $is_valid_user = true;
+         break;
+      }
+   }
+
+   if($is_valid_user && $pass === $cpass){
+      $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE email = ?");
+      $select_tutor->execute([$email]);
+      
+      if($select_tutor->rowCount() > 0){
+         $message[] = 'email already exists!';
       }else{
          $insert_tutor = $conn->prepare("INSERT INTO `tutors`(id, name, profession, email, password, image) VALUES(?,?,?,?,?,?)");
          $insert_tutor->execute([$id, $name, $profession, $email, $cpass, $rename]);
@@ -52,8 +73,9 @@ if(isset($_POST['submit'])){
             header('location:dashboard.php');
          }
       }
+   } else {
+      $message[] = 'invalid email or password!';
    }
-
 }
 
 ?>
@@ -221,13 +243,13 @@ if(isset($_POST['submit'])){
          
                </select>
                <p>your email <span>*</span></p>
-               <input type="email" name="email" placeholder="enter your email" maxlength="20" required class="box">
+               <input type="email" name="email" placeholder="enter your email" maxlength="50" required class="box">
             </div>
             <div class="col">
                <p>your password <span>*</span></p>
-               <input type="password" name="pass" placeholder="enter your password" maxlength="20" required class="box">
+               <input type="password" name="pass" placeholder="enter your password" maxlength="50" required class="box">
                <p>confirm password <span>*</span></p>
-               <input type="password" name="cpass" placeholder="confirm your password" maxlength="20" required class="box">
+               <input type="password" name="cpass" placeholder="confirm your password" maxlength="50" required class="box">
                <p>select pic <span>*</span></p>
                <input type="file" name="image" accept="image/*" required class="box">
             </div>

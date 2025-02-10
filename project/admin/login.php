@@ -15,17 +15,43 @@ if(isset($_POST['submit'])){
    $pass = sha1($_POST['pass']);
    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
 
-   $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE email = ? AND password = ? LIMIT 1");
-   $select_tutor->execute([$email, $pass]);
-   $row = $select_tutor->fetch(PDO::FETCH_ASSOC);
-   
-   if($select_tutor->rowCount() > 0){
-     setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
-     header('location:dashboard.php');
-   }else{
-      $message[] = 'incorrect email or password!';
+   // Define multiple restricted email, ID, and password combinations
+   $restricted_users = [
+      ['email' => 'hemanth@gmail.com', 'password' => sha1('caits001')],
+      ['email' => 'victor@gmail.com', 'password' => sha1('caits002')],
+      ['email' => 'navya@gmail.com', 'password' => sha1('caits003')],
+      ['email' => 'vinayashree@gmail.com', 'password' => sha1('caits004')],
+      ['email' => 'shashank@gmail.com', 'password' => sha1('caits005')],
+      ['email' => 'charlie@gmail.com', 'password' => sha1('caits006')],
+      ['email' => 'david@gmail.com', 'password' => sha1('caits007')],
+      ['email' => 'eve@gmail.com', 'password' => sha1('caits008')],
+      ['email' => 'frank@gmail.com', 'password' => sha1('caits009')],
+      ['email' => 'grace@gmail.com', 'password' => sha1('caits010')]
+   ];
+
+   $is_valid_user = false;
+
+   foreach ($restricted_users as $user) {
+      if ($email === $user['email'] && $pass === $user['password']) {
+         $is_valid_user = true;
+         break;
+      }
    }
 
+   if($is_valid_user){
+      $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE email = ? AND password = ? LIMIT 1");
+      $select_tutor->execute([$email, $pass]);
+      $row = $select_tutor->fetch(PDO::FETCH_ASSOC);
+      
+      if($select_tutor->rowCount() > 0){
+         setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
+         header('location:dashboard.php');
+      }else{
+         $message[] = 'incorrect email or password!';
+      }
+   } else {
+      $message[] = 'incorrect email or password!';
+   }
 }
 
 ?>
@@ -150,9 +176,9 @@ if(isset($message)){
          <a href="../home.php" class="btn-small">&larr;</a><h3>welcome back!</h3>
       </div>
       <p>your email <span>*</span></p>
-      <input type="email" name="email" placeholder="enter your email" maxlength="20" required class="box">
+      <input type="email" name="email" placeholder="enter your email" maxlength="50" required class="box">
       <p>your password <span>*</span></p>
-      <input type="password" name="pass" placeholder="enter your password" maxlength="20" required class="box">
+      <input type="password" name="pass" placeholder="enter your password" maxlength="50" required class="box">
       <p class="link">don't have an account? <a href="register.php">register new</a></p>
       <input type="submit" name="submit" value="login now" class="btn">
    </form>
