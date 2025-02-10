@@ -94,7 +94,7 @@ if(isset($_POST['tutor_fetch'])){
       }
       .box {
          transition: transform 0.3s, box-shadow 0.3s;
-         background-color: rgba(255, 255, 255, 0.8)!important; /* Change To Light Color */
+         background-color: rgba(49, 57, 60, 0.54)!important; /* Change To Light Blue Color */
       }
       .box:hover {
          transform: translateY(-10px);
